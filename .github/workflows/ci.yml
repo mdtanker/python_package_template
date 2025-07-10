@@ -64,7 +64,7 @@ jobs:
           #   micromamba-environment-${{ steps.date.outputs.date }}
 
       - name: Install the package
-        run: pip install -e .[test]
+        run: pip install --no-deps -e .
 
       - name: Run the tests
         run: >-
