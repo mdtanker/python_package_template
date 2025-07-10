@@ -47,28 +47,29 @@ jobs:
         python-version: ["3.9", "3.13"]
         runs-on: [ubuntu-latest, windows-latest, macos-14]
 
+        include:
+          - python-version: "pypy-3.10"
+            runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - uses: mamba-org/setup-micromamba@v2
+      - uses: actions/setup-python@v5
         with:
-          environment-file: env/test_env.yml
-          create-args: >-
-            python=${{ matrix.python-version }}
-          post-cleanup: "all"
-          # cache-downloads: false
-          # # environment cache is persistent for one week.
-          # cache-environment-key:
-          #   micromamba-environment-${{ steps.date.outputs.date }}
+          python-version: ${{ matrix.python-version }}
+          allow-prereleases: true
 
-      - name: Install the package
-        run: pip install --no-deps -e .
+      - uses: astral-sh/setup-uv@v6
 
-      - name: Run the tests
+      - name: Install package
+        run: uv sync
+
+      - name: Test package
         run: >-
-          pytest -ra --cov --cov-report=xml --cov-report=term --durations=20
+          uv run pytest -ra --cov --cov-report=xml --cov-report=term
+          --durations=20
 
       - name: Upload coverage report
         uses: codecov/codecov-action@v5
