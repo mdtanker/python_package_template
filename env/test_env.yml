@@ -1,0 +1,9 @@
+name: test_env
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  # add any dependencies which need to be installed via conda below
+  - pip
+  - pip:
+    - ../.[test]
