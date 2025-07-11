@@ -15,6 +15,6 @@ logger = logging.getLogger(__name__)
 logger.addHandler(logging.NullHandler())
 
 from .module1 import (
-    # List of functions and classes to be imported when using `import packagename`
+    # List of functions and classes to be imported when using `import samplepackagename`
     example_function,
 )

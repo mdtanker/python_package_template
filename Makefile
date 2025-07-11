@@ -1,5 +1,5 @@
 # Build, package, test, and clean
-PROJECT=packagename
+PROJECT=samplepackagename
 
 ####
 ####

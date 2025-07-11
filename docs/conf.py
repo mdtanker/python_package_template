@@ -3,10 +3,10 @@ from __future__ import annotations
 import importlib.metadata
 from typing import Any
 
-project = "packagename"
+project = "samplepackagename"
 copyright = "2025, yourname"
 author = "yourname"
-version = release = importlib.metadata.version("packagename")
+version = release = importlib.metadata.version("samplepackagename")
 
 extensions = [
     "myst_parser",
@@ -102,7 +102,7 @@ html_theme_options: dict[str, Any] = {
 
 # html_theme = "sphinx_book_theme"
 # html_theme_options = {
-#     "repository_url": "https://github.com/organizationname/packagename",
+#     "repository_url": "https://github.com/organizationname/samplepackagename",
 #     "repository_branch": "main",
 #     "path_to_docs": "docs",
 #     "launch_buttons": {

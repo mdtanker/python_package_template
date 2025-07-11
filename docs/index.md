@@ -1,4 +1,6 @@
-# packagename
+# samplepackagename
+
+Add description here.
 
 ```{include} ../README.md
 :start-after: <!-- SPHINX-START-badges -->
@@ -8,9 +10,9 @@
 ```{admonition} How to contribute
 :class: seealso
 
-We really welcome all forms of contribution! If you have any questions, comments or suggestions, please open a [discussion](https://github.com/organizationname/packagename/discussions/new/choose) or [issue (feature request)](https://github.com/organizationname/packagename/issues/new/choose) on the [GitHub page](https://github.com/organizationname/packagename/)!
+We really welcome all forms of contribution! If you have any questions, comments or suggestions, please open a [discussion](https://github.com/organizationname/samplepackagename/discussions/new/choose) or [issue (feature request)](https://github.com/organizationname/samplepackagename/issues/new/choose) on the [GitHub page](https://github.com/organizationname/samplepackagename/)!
 
-Please, read our [Contributor Guide](https://packagename.readthedocs.io/en/latest/contributing.html) to learn
+Please, read our [Contributor Guide](contributing.md) to learn
 how you can contribute to the project.
 ```
 
@@ -50,7 +52,7 @@ examples/index.md
 :maxdepth: 2
 :hidden:
 :caption: 📖 API
-api/packagename
+api/samplepackagename
 ```
 
 ```{toctree}
@@ -58,5 +60,6 @@ api/packagename
 :hidden:
 :caption: ℹ️ Other resources
 contributing.md
-Source code on GitHub <https://github.com/organizationname/packagename>
+changelog.md
+Source code on GitHub <https://github.com/organizationname/samplepackagename>
 ```

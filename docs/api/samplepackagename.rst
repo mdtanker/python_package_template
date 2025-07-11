@@ -1,5 +1,5 @@
 samplepackagename package
-===================
+=========================
 
 .. automodule:: samplepackagename
    :members:
@@ -10,7 +10,7 @@ Submodules
 ----------
 
 samplepackagename.module1 module
---------------------------
+--------------------------------
 
 .. automodule:: samplepackagename.module1
    :members:
