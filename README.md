@@ -1,4 +1,4 @@
-# packagename
+# samplepackagename
 Short description of your package.
 
 [![Actions Status][actions-badge]][actions-link]
@@ -11,36 +11,104 @@ Short description of your package.
 [![GitHub Discussion][github-discussions-badge]][github-discussions-link]
 
 ## Template Instructions
+
+The below steps will create a complete Python package with testing, a documentation website, and versions upload to both PyPI (pip) and Conda-Forge (conda) for each new version release in GitHub.
+
 Steps:
-1) choose a project name (no spaces, capitals or underscores).
-    - change all instances of `packagename` in this repository with your chosen name. (use a `search and replace` function (i.e. `ctrl+f`))
-    - this includes the folder name of `src/packagename/`
-2) replace all instance of `yourname` with your name
-    - your name can be "Maintainers of <packagename>" if there are multiple people.
-3) replace all instance of `organizationname` with your GitHub organization (or personal) account name
-4) add your pip/conda dependencies to `environmental.yml` and `pyproject.toml` in the dependency section.
-5) update `pyproject.yml`
-    - add a description
-    - add keywords
-6) add your code to and rename `src/packagename/module1.py`
-7) add any functions you want available on import to the list in `src/packagename/_init_.py`
-8) add tests for `module1.py` to `tests/test_module1.py` and rename to your module
-9) remove all the above instructions and add a description of your project here, and tweak the below user instructions as needed
+1) Initiate your repository:
+    - On this [template's page](https://github.com/mdtanker/python_package_template), click the `Use this template` button to `Create a new repository`.
+    - choose a project name
+        - for simplicity, this name will be used for all of the follow: the folder name that holds this repository as well as the code folder under `src/`, the name of the python package on both PyPI and Conda-Forge, and the repository name on GitHub. Because of these constraints, the best choice is a lowercase word with no spaces or punctuation. While capitalization and punctuation may help readability, they greatly increase the hassle during various stages of the packaging. Ensure your chosen name is available on both [PyPI](https://pypi.org/) and [Conda-Forge](https://conda-forge.org/packages/).
+    - choose if you want the repository in your personal account or in one of your organization's accounts.
+    - add a 1 sentence description of the package.
+    - choose public or private. This can be changed later, but to be published on PyPI or Conda-Forge, or for the documentation website to work, it needs to be public.
+    - create the repository
+    - update any repository settings, below are my recommended settings:
+        - protect the main branch so any changed to it need to be made through a Pull Request.
+            - go to the repository's `Settings`, `Branches`, `Add branch ruleset`. Name it "protected_main", make the `Enforecement status` Active, include the Default branch as the target, and check the following `Rules`: `Restrict deletion`, `Require a pull request before merging`, only allow `Squash` as a merge method, and `Block force pushes`
+2) Update this template:
+    - clone your repository to your computer with `git clone <url of the github repo>`
+    - change all instances of `samplepackagename` in this repository with your chosen name. (If use a program like VSCode use a `search and replace` function (i.e. `ctrl+f`))
+        - this includes the folder name of `src/samplepackagename/`
+    - replace all instances of `yourname` with your name
+        - your name can be "Maintainers of <samplepackagename>" if there are multiple people.
+    - replace all instances of `organizationname` with your GitHub organization (or personal) account name.
+    - update `pyproject.yml` with a description and keywords
+    - add a description of your project here in the README, as well as in `docs/index.md`.
+    - add your info to `AUTHORS.md`
+    - at this point, it might be good to make your initial commit to your repository with the following git commands:
+        ```bash
+        git checkout -b new-branch
+        git add .
+        git commit -m "initialize template with names"
+        git push -u origin new-branch
+        ```
+    - in your GitHub repository, go to the `Pull request` tab and open a PR for your changes. Merge this into main.
+3) Add your code
+    - pull in your above changes with `git fetch` and `git pull`.
+    - decide on a module name(s)
+        - these need to be lowercase, should be short and while possible, shouldn't include underscores.
+        - if your package is going to be small, a single module with the same name as the package is fine. If it's going to be more than a few hundred lines of code, it's best to separate your code into distinct modules which perform similar tasks. - for each module you want do the following:
+            - create / rename the existing file: `src/samplepackagename/module1.py`
+            - create / rename the test file: `tests/test_module1.py`
+            - add a description of the module to `docs/overview.md`
+            - replace all instances of `module1` with your module's name.
+    - add your code to your module `.py` files.
+    - you have two options for how users can import your code.
+        1) ```python
+            from samplepackagename import module1
+
+            module1.function1()
+            ```
+            - this option is available by default for any functions you write, and is nice if you have several modules because it clearly shows where the code is coming from.
+        2) ```python
+            import samplepackagename
+
+            samplepackagename.function1()
+            ```
+            - to allow `function1` to be imported as above, you need to manually add it to the list in `src/samplepackagename/_init_.py`. If you only have 1 module, this may be a better technique.
+    - add tests for your modules' test file in `tests/`.
+4) Specify your dependencies
+    - dependencies for your package should typically only be those that are directly used (imported) in your source code (or are explicitly needed but not import), but not the dependencies of your dependencies. If you use a package in your documentation, but not in the source code, include this as an _optional_ dependency. If you have a portion of your code that some users may not utilize, such as visualization functions, the dependencies you require for that, such as matplotlib, can also be include as _optional_ dependencies to reduces the constraints for users who don't require it.
+    - core dependencies are specified in `pyproject.toml` under the `[project]` section with the format `dependencies = ["pandas", "scipy>=1.0"]`.
+    - optional dependencies are specified in `pyproject.toml` under the `[dependency-groups]` section with the following format, for example for optional documentation dependencies: `docs = ["sphinx>=7.0",]`.
+    - Dependency version's should only be constrained to specific versions if you know there is an issue, and they should almost never be pinned to specific versions, as this will cause many issues for anyone who wants to use your package in their own environments.
+    - this template also includes files and commands to create `conda` environments. These are used both in developing, and in GitHub automations. You need to manually ensure the dependencies listed in `environmental.yml` match those in `pyproject.toml`. Include all optional dependencies in the `environmental.yml`. If a dependency is only available via pip, and not conda, add it at the bottom to be installed via pip.
+5) Create environment, style check, test, and commit your changes.
+    - follow the instructions in `CONTRIBUTING.md` from section `Setting up nox` to the bottom.
+6) Set up publishing on PyPI
+    - First, we test the setup by publishing to Test-PyPI to ensure everything works before publishing to the real PyPI.
+        - make an account on [TestPyPI](https://test.pypi.org/).
+        - under 'Your Projects', and 'Publishing', 'Add a new pending publisher', fill out your info.
+            - the project name and repository name should be what you chose for `samplepackagename`.
+            - the owner should be what you used from `organizationname`.
+            - Workflow name should be `cd.yml`
+            - Environment name should be `pypi`
+        - Note that this doesn't reserve your package name until you make your first actual release!
+    - On GitHub, make a release.
+3) Set up publishing on Conda-Forge
+    - create a conda-forge feedstock
+4) Set up ReadTheDocs for the documentation website
+    -
+5) Zenodo release
+    - add DOI to `docs/citing.md`
+6) Finalize
+    - remove all the above instructions and
 
 <!-- SPHINX-START-badges -->
 
 <!-- prettier-ignore-start -->
-[actions-badge]:            https://github.com/organizationname/packagename/workflows/CI/badge.svg
-[actions-link]:             https://github.com/organizationname/packagename/actions
-[conda-badge]:              https://img.shields.io/conda/vn/conda-forge/packagename
-[conda-link]:               https://github.com/conda-forge/packagename-feedstock
+[actions-badge]:            https://github.com/organizationname/samplepackagename/workflows/CI/badge.svg
+[actions-link]:             https://github.com/organizationname/samplepackagename/actions
+[conda-badge]:              https://img.shields.io/conda/vn/conda-forge/samplepackagename
+[conda-link]:               https://github.com/conda-forge/samplepackagename-feedstock
 [github-discussions-badge]: https://img.shields.io/static/v1?label=Discussions&message=Ask&color=blue&logo=github
-[github-discussions-link]:  https://github.com/organizationname/packagename/discussions
-[pypi-link]:                https://pypi.org/project/packagename/
-[pypi-platforms]:           https://img.shields.io/pypi/pyversions/packagename
-[pypi-version]:             https://img.shields.io/pypi/v/packagename
-[rtd-badge]:                https://readthedocs.org/projects/packagename/badge/?version=latest
-[rtd-link]:                 https://packagename.readthedocs.io/en/latest/?badge=latest
+[github-discussions-link]:  https://github.com/organizationname/samplepackagename/discussions
+[pypi-link]:                https://pypi.org/project/samplepackagename/
+[pypi-platforms]:           https://img.shields.io/pypi/pyversions/samplepackagename
+[pypi-version]:             https://img.shields.io/pypi/v/samplepackagename
+[rtd-badge]:                https://readthedocs.org/projects/samplepackagename/badge/?version=latest
+[rtd-link]:                 https://samplepackagename.readthedocs.io/en/latest/?badge=latest
 
 <!-- prettier-ignore-end -->
 
@@ -51,7 +119,7 @@ Steps:
 
 You can download a copy of all the files for this project by cloning the GitHub repository:
 
-    git clone https://github.com/organizationname/packagename
+    git clone https://github.com/organizationname/samplepackagename
 
 ## Dependencies
 
@@ -59,13 +127,13 @@ These instructions assume you have `Make` installed. If you don't you can just o
 
 Install the required dependencies with either `conda` or `mamba`:
 
-    cd packagename
+    cd samplepackagename
 
     make create
 
 Activate the newly created environment:
 
-    mamba activate packagename
+    mamba activate samplepackagename
 
 Install the local project
 
@@ -80,42 +148,39 @@ To use this code, you need to first import the package. There are two options:
 
 For example:
 ```python
-import packagename
+import samplepackagename
 ```
 
-will allow you to access the function `example_function()` with either `packagename.module1.example_function()` or just `packagename.example_function()`.
+will allow you to access the function `example_function()` with either `samplepackagename.module1.example_function()` or just `samplepackagename.example_function()`.
 
-Functions accessed in this way need to be explicitly added to the file `src/packagename/__init__.py`
+Functions accessed in this way need to be explicitly added to the file `src/samplepackagename/__init__.py`
 
 ### 2: Import each module individually
 
 For example:
 ```python
-from packagename import module1
+from samplepackagename import module1
 ```
 Will allow you to access the function `example_function()` with `module1.example_function()`.
 
 ## Developer instructions
 
-Style-check your code:
+See the contributors guide for more details.
 
-    nox -s style
+- Fork the [repository](https://github.com/organizationname/samplepackagename) using the `Fork` button on GitHub.
+- Clone your forked repository on your computer with `git clone https://github.com/organizationname/samplepackagename`.
+- Make a new branch with `git branch new-branch`
+- Make your changes
+- Add tests to make sure you changes are robust
+- Style-check your code:
 
-This will run both of the below, which you can do individually as well:
+        nox -s style
+- Test your code
 
-    nox -s lint
-    nox -s pylint
+        nox -s test
+- If necessary, update dependencies in both `environment.yml` and `pyproject.toml`. Then with your conda environment activated run:
 
-Test your code
+        make update
+- Build the documentation and check locally:
 
-    nox -s test
-
-If you need to change the dependencies of the package, either adding, removing, or adding version constraints, you need to do this in both `environment.yml` and `pyproject.toml`. Then with your conda environment activated run:
-
-    make update
-
-When writing code; use logging to inform users of info, errors, and warnings. In each module `.py` file, import the project-wide logger instance with `from packagename import logger` and then for example: `logger.info("log this message")`
-
-Build the documentation and check locally:
-
-    nox -s docs
+        nox -s docs

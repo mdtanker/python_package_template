@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from packagename import module1
+from samplepackagename import module1
 
 
 def test_example_function():

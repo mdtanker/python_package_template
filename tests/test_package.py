@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import importlib.metadata
 
-import packagename
+import samplepackagename
 
 
 def test_version():
-    assert importlib.metadata.version("packagename") == packagename.__version__
+    assert (
+        importlib.metadata.version("samplepackagename") == samplepackagename.__version__
+    )
