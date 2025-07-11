@@ -1,20 +1,14 @@
-# samplepackagename
-Short description of your package.
-
-[![Actions Status][actions-badge]][actions-link]
-[![Documentation Status][rtd-badge]][rtd-link]
-
-[![PyPI version][pypi-version]][pypi-link]
-[![Conda-Forge][conda-badge]][conda-link]
-[![PyPI platforms][pypi-platforms]][pypi-link]
-
-[![GitHub Discussion][github-discussions-badge]][github-discussions-link]
-
-## Template Instructions
+# Python Package Template
 
 This template is based on the [Scientific Python Development Guide](https://learn.scientific-python.org/development/). The main differences with the [template they provide](https://github.com/scientific-python/cookie) is that this is an _opinionated_ template, where I made certain decision I feel are optimal. Additional, this is setup for packages which have complex non-Python dependencies which can be installed with `pip`, but require `conda`. This is useful if your package will depends on packages such as `GeoPandas`, `PyGMT`, or `Cartopy`, as these all depend on code written in C or C+ which is easiest to install with conda.
 
 The below steps will create a complete Python package with testing, a documentation website, and builds uploaded to both PyPI (pip) and Conda-Forge (conda) for each new version release in GitHub. While it is quite tedious to initially setup, once you finished the below steps, almost everything is automated. The documentation website is automatically generated for each new PR, and new package versions are automatically released to PyPI and Conda-Forge each time you manually create a GitHub release.
+
+## Packages which have used this template
+
+* None yet 😔
+
+## Template Instructions
 
 Steps:
 1) Initiate your repository:
@@ -134,6 +128,19 @@ Steps:
     - for each commit to main, ReadTheDocs should automatically update the documentation website. Also, in PR's there should be a link to view the new docs to check them before merging the PR.
 12) Finalize
     - remove all the above instructions and raise any issues in this template's repository if you have any suggestion or found any errors in this template!
+    - if you want, please submit a PR to this repository to add your package to this list at the top of this README to showcase it!
+
+# samplepackagename
+Short description of your package.
+
+[![Actions Status][actions-badge]][actions-link]
+[![Documentation Status][rtd-badge]][rtd-link]
+
+[![PyPI version][pypi-version]][pypi-link]
+[![Conda-Forge][conda-badge]][conda-link]
+[![PyPI platforms][pypi-platforms]][pypi-link]
+
+[![GitHub Discussion][github-discussions-badge]][github-discussions-link]
 
 <!-- SPHINX-START-badges -->
 
