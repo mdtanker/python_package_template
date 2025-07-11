@@ -1,12 +1,13 @@
 # How to contribute
 
 ## TLDR (Too long; didn't read)
-* open a [GitHub Issue](https://github.com/organizationname/samplepackagename/issues/new/choose) describing what you want to do
-* [fork](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project) the main branch and clone it locally
-* [create a branch](https://docs.github.com/en/get-started/using-github/github-flow#create-a-branch) for your edits
+* [fork](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project) the [repository](https://github.com/organizationname/samplepackagename) using the `Fork` button on GitHub.
+* clone your forked repository on your computer with `git clone https://github.com/organizationname/samplepackagename`.
+* [create a branch](https://docs.github.com/en/get-started/using-github/github-flow#create-a-branch) for your edits with `git branch new-branch`
 * make your changes and run the style checkers with `nox -s style`
 * once the style checks pass, commit your changes with `git commit -m "a short description of your changes"`
-* [make a Pull Request](http://makeapullrequest.com/) for your branch
+* push your changes with `git push -u origin new-branch`
+* [make a Pull Request](http://makeapullrequest.com/) for your branch from the main GitHub repository [PR page](https://github.com/organizationname/samplepackagename/pulls).
 
 🎉 Thanks for considering contributing to this package! 🎉
 

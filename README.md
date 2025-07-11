@@ -1,18 +1,14 @@
-# samplepackagename
-Short description of your package.
+# Python Package Template
 
-[![Actions Status][actions-badge]][actions-link]
-[![Documentation Status][rtd-badge]][rtd-link]
+This template is based on the [Scientific Python Development Guide](https://learn.scientific-python.org/development/). The main differences with the [template they provide](https://github.com/scientific-python/cookie) is that this is an _opinionated_ template, where I made certain decision I feel are optimal. Additional, this is setup for packages which have complex non-Python dependencies which can be installed with `pip`, but require `conda`. This is useful if your package will depends on packages such as `GeoPandas`, `PyGMT`, or `Cartopy`, as these all depend on code written in C or C+ which is easiest to install with conda.
 
-[![PyPI version][pypi-version]][pypi-link]
-[![Conda-Forge][conda-badge]][conda-link]
-[![PyPI platforms][pypi-platforms]][pypi-link]
+The below steps will create a complete Python package with testing, a documentation website, and builds uploaded to both PyPI (pip) and Conda-Forge (conda) for each new version release in GitHub. While it is quite tedious to initially setup, once you finished the below steps, almost everything is automated. The documentation website is automatically generated for each new PR, and new package versions are automatically released to PyPI and Conda-Forge each time you manually create a GitHub release.
 
-[![GitHub Discussion][github-discussions-badge]][github-discussions-link]
+## Packages which have used this template
+
+* None yet 😔
 
 ## Template Instructions
-
-The below steps will create a complete Python package with testing, a documentation website, and versions upload to both PyPI (pip) and Conda-Forge (conda) for each new version release in GitHub.
 
 Steps:
 1) Initiate your repository:
@@ -75,25 +71,76 @@ Steps:
     - Dependency version's should only be constrained to specific versions if you know there is an issue, and they should almost never be pinned to specific versions, as this will cause many issues for anyone who wants to use your package in their own environments.
     - this template also includes files and commands to create `conda` environments. These are used both in developing, and in GitHub automations. You need to manually ensure the dependencies listed in `environmental.yml` match those in `pyproject.toml`. Include all optional dependencies in the `environmental.yml`. If a dependency is only available via pip, and not conda, add it at the bottom to be installed via pip.
 5) Create environment, style check, test, and commit your changes.
-    - follow the instructions in `CONTRIBUTING.md` from section `Setting up nox` to the bottom.
-6) Set up publishing on PyPI
-    - First, we test the setup by publishing to Test-PyPI to ensure everything works before publishing to the real PyPI.
-        - make an account on [TestPyPI](https://test.pypi.org/).
-        - under 'Your Projects', and 'Publishing', 'Add a new pending publisher', fill out your info.
-            - the project name and repository name should be what you chose for `samplepackagename`.
-            - the owner should be what you used from `organizationname`.
-            - Workflow name should be `cd.yml`
-            - Environment name should be `pypi`
-        - Note that this doesn't reserve your package name until you make your first actual release!
-    - On GitHub, make a release.
-3) Set up publishing on Conda-Forge
-    - create a conda-forge feedstock
-4) Set up ReadTheDocs for the documentation website
-    -
-5) Zenodo release
-    - add DOI to `docs/citing.md`
-6) Finalize
-    - remove all the above instructions and
+    - follow the instructions in `CONTRIBUTING.md` starting at section `Setting up nox` and stopping before `Publish a new release`.
+    - these steps should result in a merged PR with your code.
+6) Set up automated Zenodo releases
+    - if you haven't already, link your organization (or personal) GitHub account to [Zenodo](https://zenodo.org/) using `Linked accounts` under your Zenodo profile.
+    - do to the `GitHub` menu on your Zenodo profile.
+    - click the Sync button and then turn on the switch for your repository.
+    - any future GitHub releases should now result in a new Zenodo release automatically.
+7) Set up publishing on TestPyPI
+    - before publishing to the real PyPI, we will publish to Test-PyPI to ensure everything works .
+    - make an account on [TestPyPI](https://test.pypi.org/).
+    - under 'Your Projects', and 'Publishing', 'Add a new pending publisher', fill out your info.
+        - the project name and repository name should be what you chose for `samplepackagename`.
+        - the owner should be what you used from `organizationname`.
+        - Workflow name should be `cd.yml`
+        - Environment name should be `pypi`
+    - note that this doesn't reserve your package name until you make your first actual release!
+8) Make a GitHub release
+    - On the main GitHub page, on the right side click `Create a new release`.
+    - click `Select tag` and type `v0.0.1`.
+    - set a Release title: "Initial release"
+    - click `Publish release`
+    - this should automatically trigger a few things:
+        1) a DOI will be added to your Zenodo, add this DOI to `docs/citing.md`.
+        2) the GitHub action `CD` should be triggered, create a release of `v0.0.1` to TestPyPI.
+            - to test this worked correctly, run the below commands to create a new conda environment using the TestPiPI release, and run your codes tests.
+            ```bash
+            mamba  create --name test_pypi python
+            mamba activate test_pypi
+            pip install -i https://test.pypi.org/simple/ samplepackagename
+            nox -s test
+            ```
+9) Make a PyPI (pip) release
+    - If the install and test above worked then we can change from TestPyPI to normal PyPI.
+    - in `.github/workflows/cd.yml` comment out or delete the last line: `repository-url: https://test.pypi.org/legacy/`. Now any future reruns of this action will release to PyPI.
+    - In this case, since the GitHub release has already been made, we need to manually trigger the `CD` workflow in GitHub.
+        - At [this link](https://github.com/organizationname/samplepackagename/actions/workflows/cd.yml), click the `Run workflow` button.
+        - This should build the package and release it to PyPI.
+10) Set up publishing on Conda-Forge
+    - create a [conda-forge recipe and feedstock](https://conda-forge.org/docs/maintainer/adding_pkgs/#creating-recipes) with the below instructions:
+        - Create a new environment using : `mamba create --name grayskull grayskull`
+        - Activate this new environment : `conda activate MY_ENV`
+        - Generate the recipe : `grayskull pypi --strict-conda-forge https://github.com/organizationname/samplepackagename`
+        - this should create a `meta.yaml` file, which is the recipe.
+    - fork and clone the [stage-recipes](https://github.com/conda-forge/staged-recipes) repository on conda-forge.
+    - checkout a new branch : `git checkout -b samplepackagename`
+    - create a new folder : `staged-recipes/recipes/samplepackagename`
+    - copy your `meta.yaml` file into this folder, remove the `meta.yaml` from wherever it was generated.
+    - commit and push your changes to your fork, and in the main [repository](https://github.com/conda-forge/staged-recipes) open a PR.
+11) Set up ReadTheDocs for the documentation website
+    - log into ReadTheDocs using your GitHub account.
+    - click `Add project` and ssearch for your repository.
+    - Chose your project name, ideally its the same as your package name, but it doesn't have to be. If it's different, update the badge below: `[rtd-link]: https://samplepackagename.readthedocs.io/en/latest/?badge=latest`
+    - Go to `settings` to update anything you'd like
+        - check `Build pull requests for this project`.
+    - for each commit to main, ReadTheDocs should automatically update the documentation website. Also, in PR's there should be a link to view the new docs to check them before merging the PR.
+12) Finalize
+    - remove all the above instructions and raise any issues in this template's repository if you have any suggestion or found any errors in this template!
+    - if you want, please submit a PR to this repository to add your package to this list at the top of this README to showcase it!
+
+# samplepackagename
+Short description of your package.
+
+[![Actions Status][actions-badge]][actions-link]
+[![Documentation Status][rtd-badge]][rtd-link]
+
+[![PyPI version][pypi-version]][pypi-link]
+[![Conda-Forge][conda-badge]][conda-link]
+[![PyPI platforms][pypi-platforms]][pypi-link]
+
+[![GitHub Discussion][github-discussions-badge]][github-discussions-link]
 
 <!-- SPHINX-START-badges -->
 
@@ -113,74 +160,3 @@ Steps:
 <!-- prettier-ignore-end -->
 
 <!-- SPHINX-END-badges -->
-
-
-## Getting the code
-
-You can download a copy of all the files for this project by cloning the GitHub repository:
-
-    git clone https://github.com/organizationname/samplepackagename
-
-## Dependencies
-
-These instructions assume you have `Make` installed. If you don't you can just open up the `Makefile` file and copy and paste the commands into your terminal. This also assumes you have Python installed.
-
-Install the required dependencies with either `conda` or `mamba`:
-
-    cd samplepackagename
-
-    make create
-
-Activate the newly created environment:
-
-    mamba activate samplepackagename
-
-Install the local project
-
-    make install
-
-
-## How to use
-
-To use this code, you need to first import the package. There are two options:
-
-### 1: Import the main package
-
-For example:
-```python
-import samplepackagename
-```
-
-will allow you to access the function `example_function()` with either `samplepackagename.module1.example_function()` or just `samplepackagename.example_function()`.
-
-Functions accessed in this way need to be explicitly added to the file `src/samplepackagename/__init__.py`
-
-### 2: Import each module individually
-
-For example:
-```python
-from samplepackagename import module1
-```
-Will allow you to access the function `example_function()` with `module1.example_function()`.
-
-## Developer instructions
-
-See the contributors guide for more details.
-
-- Fork the [repository](https://github.com/organizationname/samplepackagename) using the `Fork` button on GitHub.
-- Clone your forked repository on your computer with `git clone https://github.com/organizationname/samplepackagename`.
-- Make a new branch with `git branch new-branch`
-- Make your changes
-- Add tests to make sure you changes are robust
-- Style-check your code:
-
-        nox -s style
-- Test your code
-
-        nox -s test
-- If necessary, update dependencies in both `environment.yml` and `pyproject.toml`. Then with your conda environment activated run:
-
-        make update
-- Build the documentation and check locally:
-
-        nox -s docs
