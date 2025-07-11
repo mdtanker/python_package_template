@@ -12,7 +12,9 @@ Short description of your package.
 
 ## Template Instructions
 
-The below steps will create a complete Python package with testing, a documentation website, and versions upload to both PyPI (pip) and Conda-Forge (conda) for each new version release in GitHub.
+This template is based on the [Scientific Python Development Guide](https://learn.scientific-python.org/development/). The main differences with the [template they provide](https://github.com/scientific-python/cookie) is that this is an _opinionated_ template, where I made certain decision I feel are optimal. Additional, this is setup for packages which have complex non-Python dependencies which can be installed with `pip`, but require `conda`. This is useful if your package will depends on packages such as `GeoPandas`, `PyGMT`, or `Cartopy`, as these all depend on code written in C or C+ which is easiest to install with conda.
+
+The below steps will create a complete Python package with testing, a documentation website, and builds uploaded to both PyPI (pip) and Conda-Forge (conda) for each new version release in GitHub. While it is quite tedious to initially setup, once you finished the below steps, almost everything is automated. The documentation website is automatically generated for each new PR, and new package versions are automatically released to PyPI and Conda-Forge each time you manually create a GitHub release.
 
 Steps:
 1) Initiate your repository:
@@ -110,10 +112,19 @@ Steps:
     - If the install and test above worked then we can change from TestPyPI to normal PyPI.
     - in `.github/workflows/cd.yml` comment out or delete the last line: `repository-url: https://test.pypi.org/legacy/`. Now any future reruns of this action will release to PyPI.
     - In this case, since the GitHub release has already been made, we need to manually trigger the `CD` workflow in GitHub.
-        - At [this link](https://github.com/mdtanker/python_package_template/actions/workflows/cd.yml), click the `Run workflow` button.
+        - At [this link](https://github.com/organizationname/samplepackagename/actions/workflows/cd.yml), click the `Run workflow` button.
         - This should build the package and release it to PyPI.
 10) Set up publishing on Conda-Forge
-    - create a conda-forge feedstock
+    - create a [conda-forge recipe and feedstock](https://conda-forge.org/docs/maintainer/adding_pkgs/#creating-recipes) with the below instructions:
+        - Create a new environment using : `mamba create --name grayskull grayskull`
+        - Activate this new environment : `conda activate MY_ENV`
+        - Generate the recipe : `grayskull pypi --strict-conda-forge https://github.com/organizationname/samplepackagename`
+        - this should create a `meta.yaml` file, which is the recipe.
+    - fork and clone the [stage-recipes](https://github.com/conda-forge/staged-recipes) repository on conda-forge.
+    - checkout a new branch : `git checkout -b samplepackagename`
+    - create a new folder : `staged-recipes/recipes/samplepackagename`
+    - copy your `meta.yaml` file into this folder, remove the `meta.yaml` from wherever it was generated.
+    - commit and push your changes to your fork, and in the main [repository](https://github.com/conda-forge/staged-recipes) open a PR.
 11) Set up ReadTheDocs for the documentation website
     - log into ReadTheDocs using your GitHub account.
     - click `Add project` and ssearch for your repository.
