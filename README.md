@@ -99,7 +99,7 @@ Steps:
     - this should automatically trigger a few things:
         1) a DOI will be added to your Zenodo, add this DOI to `docs/citing.md`.
         2) the GitHub action `CD` should be triggered, create a release of `v0.0.1` to TestPyPI.
-            - to test this worked correctly, run the below commands to create a new conda environement using the TestPiPI release, and run your codes tests.
+            - to test this worked correctly, run the below commands to create a new conda environment using the TestPiPI release, and run your codes tests.
             ```bash
             mamba  create --name test_pypi python
             mamba activate test_pypi
@@ -116,8 +116,10 @@ Steps:
     - create a conda-forge feedstock
 11) Set up ReadTheDocs for the documentation website
     - log into ReadTheDocs using your GitHub account.
-    - click `Add project` and search for your repository.
+    - click `Add project` and ssearch for your repository.
     - Chose your project name, ideally its the same as your package name, but it doesn't have to be. If it's different, update the badge below: `[rtd-link]: https://samplepackagename.readthedocs.io/en/latest/?badge=latest`
+    - Go to `settings` to update anything you'd like
+        - check `Build pull requests for this project`.
     - for each commit to main, ReadTheDocs should automatically update the documentation website. Also, in PR's there should be a link to view the new docs to check them before merging the PR.
 12) Finalize
     - remove all the above instructions and raise any issues in this template's repository if you have any suggestion or found any errors in this template!
