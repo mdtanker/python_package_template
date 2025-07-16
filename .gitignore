@@ -2,9 +2,6 @@
 data/*
 !data/.gitkeep
 
-# Ignore any generated pickle files
-**.pickle
-
 # Ignore the virtual environment
 **uv.lock
 
