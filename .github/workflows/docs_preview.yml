@@ -1,8 +1,5 @@
 name: Docs Preview
 
-permissions:
-  pull-requests: write
-
 on:
   pull_request:
     types:
@@ -13,11 +10,16 @@ on:
       - closed
   workflow_dispatch:
 
-concurrency: preview-${{github.ref}}
-
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency: preview-${{github.ref}}
+    defaults:
+      run:
+        shell: bash -l {0}
+
     steps:
       # Checkout current git repository
       - name: Checkout
