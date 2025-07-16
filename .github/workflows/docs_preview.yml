@@ -10,12 +10,16 @@ on:
       - closed
   workflow_dispatch:
 
+concurrency: preview-${{github.ref}}
+
 jobs:
-  deploy-preview:
+  preview:
     runs-on: ubuntu-latest
+    # only run if from the same repository, not a fork
+    if: github.event.pull_request.head.repo.full_name == github.repository
     permissions:
       contents: write
-    concurrency: preview-${{github.ref}}
+      pull-requests: write
     defaults:
       run:
         shell: bash -l {0}
@@ -50,3 +54,7 @@ jobs:
           source-dir: docs/_build/html
           preview-branch: gh-pages
           # custom-url:
+          umbrella-dir: pr-preview
+          action: auto
+          deploy-repository: ${{ github.repository }}
+          token: ${{ secrets.GITHUB_TOKEN }}
