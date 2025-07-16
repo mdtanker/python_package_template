@@ -33,7 +33,7 @@ Steps:
     - replace all instances of `yourname` with your name
         - your name can be "Maintainers of <samplepackagename>" if there are multiple people.
     - replace all instances of `organizationname` with your GitHub organization (or personal) account name, whichever is going to host the repository.
-    - update `pyproject.yml` with a description (1 sentance) and keywords ()
+    - update `pyproject.yml` with a description (1 sentence) and keywords ()
     - add a description of your project here in the README, as well as in `docs/index.md`.
     - add your info to `AUTHORS.md`
     - at this point, it might be good to make your initial commit to your repository with the following git commands:
