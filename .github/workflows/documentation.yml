@@ -26,9 +26,13 @@ jobs:
 
       - uses: astral-sh/setup-uv@v6
 
+      # Make API docs
+      - name: Make API docs
+        run: uvx nox -s build_api_docs
+
       # Build the documentation
       - name: Build the documentation
-        run: uvx nox -s doc --non-interactive
+        run: uvx nox -s docs --non-interactive
 
       # Deploy the book's HTML to gh-pages branch
       - name: GitHub Pages action
