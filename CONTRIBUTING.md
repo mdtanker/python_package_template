@@ -164,7 +164,7 @@ git remote add upstream https://github.com/organizationname/samplepackagenamee.g
 ### Setting up `nox`
 
 Most of the commands used in the development of `samplepackagename` use the tool `nox`.
-The `nox` commands are defined in the file [`noxfile.py`](https://github.com/organizationname/samplepackagename/blob/main/Makefile), and are run in the terminal / command prompt with the format ```nox -s <<command name>>```.
+The `nox` commands are defined in the file [`noxfile.py`](https://github.com/organizationname/samplepackagename/blob/main/noxfile.py), and are run in the terminal / command prompt with the format ```nox -s <<command name>>```.
 
 You can install nox with `pip install nox`.
 
@@ -206,6 +206,8 @@ We use [pre-commit](https://pre-commit.com/) to check code style. This can be us
 ```
 nox -s lint
 ```
+
+To have `pre-commit` run automatically on commits, install it with `pre-commit install`
 
 Go through the output of this and try to change the code based on the errors. Search the error codes on the [Ruff documentation](https://docs.astral.sh/ruff/), which should give suggestions. Re-run the check to see if you've fixed it. Somethings can't be resolved (unsplittable urls longer than the line length). For these, add `# noqa: []` at the end of the line and the check will ignore it. Inside the square brackets add the specific error code you want to ignore.
 
@@ -360,6 +362,19 @@ GitHub will show the status of these checks on the pull request.
 Try to get them all passing (green).
 If you have any trouble, leave a comment in the PR or
 [post on the GH discussions page](https://github.com/organizationname/samplepackagename/discussions).
+
+### Sync your fork and local
+
+Once the PR is merged, you will need to sync both your forked repository (origin) and your local clones repository with the following git commands:
+
+```bash
+git fetch upstream
+git checkout main
+git branch -d your-branch-name (OPTIONAL)
+git merge upstream/main
+git push origin main
+```
+Now both your forked (upstream) and local repositories are sync with the upstream repository where the PR was merged.
 
 ## Publish a new release
 
