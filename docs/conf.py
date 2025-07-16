@@ -18,6 +18,8 @@ extensions = [
     "sphinx_copybutton",
     # "sphinx.ext.viewcode",
     "nbsphinx",
+    # githubpages just adds a .nojekyll file
+    "sphinx.ext.githubpages",
 ]
 
 source_suffix = [".rst", ".md"]
