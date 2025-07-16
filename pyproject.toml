@@ -33,13 +33,6 @@ dynamic = ["version"]
 dependencies = [
 ]
 
-[project.urls]
-Homepage = "https://github.com/organizationname/samplepackagename"
-"Bug Tracker" = "https://github.com/organizationname/samplepackagename/issues"
-Discussions = "https://github.com/organizationname/samplepackagename/discussions"
-Changelog = "https://github.com/organizationname/samplepackagename/docs/changelog.md"
-
-
 [dependency-groups]
 test = [
   "pytest >=6",
@@ -62,6 +55,12 @@ all = [
   {include-group = "dev"},
   {include-group = "docs"},
 ]
+
+[project.urls]
+Homepage = "https://github.com/organizationname/samplepackagename"
+"Bug Tracker" = "https://github.com/organizationname/samplepackagename/issues"
+Discussions = "https://github.com/organizationname/samplepackagename/discussions"
+Changelog = "https://github.com/organizationname/samplepackagename/docs/changelog.md"
 
 
 [tool.hatch]
