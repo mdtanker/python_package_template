@@ -363,6 +363,19 @@ Try to get them all passing (green).
 If you have any trouble, leave a comment in the PR or
 [post on the GH discussions page](https://github.com/organizationname/samplepackagename/discussions).
 
+### Sync your fork and local
+
+Once the PR is merged, you will need to sync both your forked repository (origin) and your local clones repository with the following git commands:
+
+```bash
+git fetch upstream
+git checkout main
+git branch -d your-branch-name (OPTIONAL)
+git merge upstream/main
+git push origin main
+```
+Now both your forked (upstream) and local repositories are sync with the upstream repository where the PR was merged.
+
 ## Publish a new release
 
 This will almost always be done by the developers, but as a guide for them, here are instructions on how to release a new version of the package.
