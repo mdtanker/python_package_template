@@ -1,0 +1,50 @@
+name: Docs Preview
+
+permissions:
+  pull-requests: write
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - edited
+      - closed
+  workflow_dispatch:
+
+concurrency: preview-${{github.ref}}
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout current git repository
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # setup python env
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - uses: astral-sh/setup-uv@v6
+
+      - id: install_pandoc
+        run: sudo apt-get install pandoc
+
+      # Make API docs
+      - name: Make API docs
+        run: uvx nox -s build_api_docs
+
+      # Build the documentation
+      - name: Build the documentation
+        run: uvx nox -s docs --non-interactive -- docs/_build/html
+
+      # Deploy the preview of the docs
+      - name: Deploy Preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: docs/_build/html
+          preview-branch: gh-pages
+          # custom-url:
