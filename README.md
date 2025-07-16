@@ -138,13 +138,14 @@ Steps:
     - create a new folder : `staged-recipes/recipes/samplepackagename`
     - copy your `meta.yaml` file into this folder, remove the `meta.yaml` from wherever it was generated.
     - commit and push your changes to your fork, and in the main [repository](https://github.com/conda-forge/staged-recipes) open a PR.
-13) Set up ReadTheDocs for the documentation website
-    - log into ReadTheDocs using your GitHub account.
-    - click `Add project` and ssearch for your repository.
-    - Chose your project name, ideally its the same as your package name, but it doesn't have to be. If it's different, update the badge below: `[rtd-link]: https://samplepackagename.readthedocs.io/en/latest/?badge=latest`
-    - Go to `settings` to update anything you'd like
-        - check `Build pull requests for this project`.
-    - for each commit to main, ReadTheDocs should automatically update the documentation website. Also, in PR's there should be a link to view the new docs to check them before merging the PR.
+13) Set up GitHub Pages to host the documentation website
+    - this will only work for a public repository
+    - On GitHub, go to your repositories settings
+    - for `Source`, choose "Deplot from a branch"
+    - for `Branch`, choose "gh-pages"
+    - for `Select folder`, choose "root"
+    - optionally choose a custom URL and hit save
+    - for every push to `main` (from a PR), the site will be updated
 14) Finalize
     - remove all the above instructions and raise any issues in this template's repository if you have any suggestion or found any errors in this template!
     - if you want, please submit a PR to this repository to add your package to this list at the top of this README to showcase it!
@@ -153,7 +154,7 @@ Steps:
 Short description of your package.
 
 [![Actions Status][actions-badge]][actions-link]
-[![Documentation Status][rtd-badge]][rtd-link]
+[![Documentation Status][website-badge]][website-link]
 
 [![PyPI version][pypi-version]][pypi-link]
 [![Conda-Forge][conda-badge]][conda-link]
@@ -173,8 +174,8 @@ Short description of your package.
 [pypi-link]:                https://pypi.org/project/samplepackagename/
 [pypi-platforms]:           https://img.shields.io/pypi/pyversions/samplepackagename
 [pypi-version]:             https://img.shields.io/pypi/v/samplepackagename
-[rtd-badge]:                https://readthedocs.org/projects/samplepackagename/badge/?version=latest
-[rtd-link]:                 https://samplepackagename.readthedocs.io/en/latest/?badge=latest
+[website-badge]:            https://github.com/mdtanker/python_package_template/actions/workflows/pages/pages-build-deployment/badge.svg
+[website-link]:             https://mdtanker.github.io/python_package_template/
 
 <!-- prettier-ignore-end -->
 
