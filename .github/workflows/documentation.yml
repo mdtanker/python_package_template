@@ -26,6 +26,9 @@ jobs:
 
       - uses: astral-sh/setup-uv@v6
 
+      - id: install_pandoc
+        run: sudo apt-get install pandoc
+
       # Make API docs
       - name: Make API docs
         run: uvx nox -s build_api_docs
