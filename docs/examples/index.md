@@ -1,7 +1,11 @@
 # Examples
 
+<!--
 ```{nbgallery}
 ---
 ---
-<!-- Add list of notebooks here -->
+notebook1
+notebook2
+notebook3
 ```
+-->
