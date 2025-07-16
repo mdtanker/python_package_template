@@ -1,4 +1,3 @@
-# Build, package, test, and clean
 PROJECT=samplepackagename
 
 ####
@@ -8,13 +7,13 @@ PROJECT=samplepackagename
 ####
 
 create:
-	mamba env create --file environment.yml
+	mamba env create --file environment.yml --name $(PROJECT)
 
 install:
 	pip install --no-deps -e .
 
 update:
-	mamba env update --file environment.yml --prune
+	mamba env update --file environment.yml --name $(PROJECT) --prune
 
 remove:
 	mamba env remove --name $(PROJECT)
