@@ -37,7 +37,7 @@ jobs:
       - name: Build the documentation
         run: uvx nox -s docs --non-interactive -- docs/_build/html
 
-      # Deploy the book's HTML to gh-pages branch
+      # Deploy the HTML to gh-pages branch
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v4
         # Only publish if the main branch
@@ -47,3 +47,15 @@ jobs:
           publish_dir: docs/_build/html
           publish_branch: gh-pages
           force_orphan: true
+          # keep_files is to prevent PR preview files from being overwritten.
+          # If we need to overwrite such files, trigger this workflow manually.
+          keep_files: ${{ github.event_name != 'workflow_dispatch' }}
+
+      # Deploy the HTML to PR preview
+      - name: Deploy PR preview
+        # Only run this job if the PR was created from a branch because this job will
+        # fail for branches from forks.
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: docs/_build/html
