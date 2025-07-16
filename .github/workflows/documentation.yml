@@ -1,6 +1,10 @@
 name: documentation
 
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 # This job installs dependencies, builds the html, and pushes it to gh-pages
 jobs:
@@ -40,8 +44,6 @@ jobs:
       # Deploy the HTML to gh-pages branch
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v4
-        # Only publish if the main branch
-        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/_build/html
