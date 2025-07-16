@@ -277,7 +277,7 @@ Leave a comment in the PR and we'll help you out.
 
 ### Documentation
 
-The Docs are build with `Sphinx` and `Read the Docs`.
+The Docs are build with [Jupyer Book](https://jupyterbook.org/en/stable/intro.html) and hosted on [Read the Docs](https://readthedocs.org/).
 
 > **Note:** The docs are automatically built on PR's by `RTD`, but it's good practice to build them manually before a PR, to check them for errors.
 
