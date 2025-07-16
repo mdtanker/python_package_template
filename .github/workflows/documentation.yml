@@ -35,15 +35,15 @@ jobs:
 
       # Build the documentation
       - name: Build the documentation
-        run: uvx nox -s docs --non-interactive
+        run: uvx nox -s docs --non-interactive -- docs/_build/html
 
       # Deploy the book's HTML to gh-pages branch
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v4
         # Only publish if the main branch
-        # if: ${{ github.ref == 'refs/heads/main' }}
+        if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/_build/html
           publish_branch: gh-pages
-          # force_orphan: true
+          force_orphan: true
