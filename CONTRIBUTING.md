@@ -164,7 +164,7 @@ git remote add upstream https://github.com/organizationname/samplepackagenamee.g
 ### Setting up `nox`
 
 Most of the commands used in the development of `samplepackagename` use the tool `nox`.
-The `nox` commands are defined in the file [`noxfile.py`](https://github.com/organizationname/samplepackagename/blob/main/Makefile), and are run in the terminal / command prompt with the format ```nox -s <<command name>>```.
+The `nox` commands are defined in the file [`noxfile.py`](https://github.com/organizationname/samplepackagename/blob/main/noxfile.py), and are run in the terminal / command prompt with the format ```nox -s <<command name>>```.
 
 You can install nox with `pip install nox`.
 
@@ -206,6 +206,8 @@ We use [pre-commit](https://pre-commit.com/) to check code style. This can be us
 ```
 nox -s lint
 ```
+
+To have `pre-commit` run automatically on commits, install it with `pre-commit install`
 
 Go through the output of this and try to change the code based on the errors. Search the error codes on the [Ruff documentation](https://docs.astral.sh/ruff/), which should give suggestions. Re-run the check to see if you've fixed it. Somethings can't be resolved (unsplittable urls longer than the line length). For these, add `# noqa: []` at the end of the line and the check will ignore it. Inside the square brackets add the specific error code you want to ignore.
 

@@ -20,16 +20,20 @@ Steps:
     - choose public or private. This can be changed later, but to be published on PyPI or Conda-Forge, or for the documentation website to work, it needs to be public.
     - create the repository
     - update any repository settings, below are my recommended settings:
-        - protect the main branch so any changed to it need to be made through a Pull Request.
+        - enable discussions
+        - only allow squash merging (disable the other options)
+        - always suggest updating pull request branches
+        - automatically delete head branches
+        - protect the main branch so any changes to it need to be made through a Pull Request.
             - go to the repository's `Settings`, `Branches`, `Add branch ruleset`. Name it "protected_main", make the `Enforecement status` Active, include the Default branch as the target, and check the following `Rules`: `Restrict deletion`, `Require a pull request before merging`, only allow `Squash` as a merge method, and `Block force pushes`
 2) Update this template:
-    - clone your repository to your computer with `git clone <url of the github repo>`
-    - change all instances of `samplepackagename` in this repository with your chosen name. (If use a program like VSCode use a `search and replace` function (i.e. `ctrl+f`))
+    - clone your repository to your computer with `git clone <url of the github repo>`; if you create the repository on an organization's GitHub instead of your personal one, first fork the repository before you clone it.
+    - change all instances of `samplepackagename` in this repository with your chosen name. (If use a program like VSCode use a `search and replace` function (i.e. `ctrl+f`)), there should be over 100 instances of `samplepackagename`.
         - this includes the folder name of `src/samplepackagename/`
     - replace all instances of `yourname` with your name
         - your name can be "Maintainers of <samplepackagename>" if there are multiple people.
-    - replace all instances of `organizationname` with your GitHub organization (or personal) account name.
-    - update `pyproject.yml` with a description and keywords
+    - replace all instances of `organizationname` with your GitHub organization (or personal) account name, whichever is going to host the repository.
+    - update `pyproject.yml` with a description (1 sentance) and keywords ()
     - add a description of your project here in the README, as well as in `docs/index.md`.
     - add your info to `AUTHORS.md`
     - at this point, it might be good to make your initial commit to your repository with the following git commands:
@@ -39,9 +43,10 @@ Steps:
         git commit -m "initialize template with names"
         git push -u origin new-branch
         ```
-    - in your GitHub repository, go to the `Pull request` tab and open a PR for your changes. Merge this into main.
+    - in the GitHub repository, go to the `Pull request` tab and open a PR for your changes. Merge this into main.
 3) Add your code
-    - pull in your above changes with `git fetch` and `git pull`.
+    - pull in your above changes with `git checkout main` and `git merge upstream/main`
+    - if your working off a fork: push the above commit to sync your fork with upstream with `git push origin main`.
     - decide on a module name(s)
         - these need to be lowercase, should be short and while possible, shouldn't include underscores.
         - if your package is going to be small, a single module with the same name as the package is fine. If it's going to be more than a few hundred lines of code, it's best to separate your code into distinct modules which perform similar tasks. - for each module you want do the following:
@@ -73,7 +78,7 @@ Steps:
 5) Create environment, style check, test, and commit your changes.
     - follow the instructions in `CONTRIBUTING.md` starting at section `Setting up nox` and stopping before `Publish a new release`.
     - these steps should result in a merged PR with your code.
-6) Set up automated Zenodo releases
+6) Set up automated Zenodo releases (only for Public repositories)
     - if you haven't already, link your organization (or personal) GitHub account to [Zenodo](https://zenodo.org/) using `Linked accounts` under your Zenodo profile.
     - do to the `GitHub` menu on your Zenodo profile.
     - click the Sync button and then turn on the switch for your repository.
