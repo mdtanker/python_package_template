@@ -161,3 +161,6 @@ messages_control.disable = [
   "missing-function-docstring",
   "wrong-import-position",
 ]
+
+[tool.codespell]
+ignore-words-list = ["word_to_ignore"]
