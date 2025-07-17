@@ -2,11 +2,13 @@
 
 ## TLDR (Too long; didn't read)
 * [fork](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project) the [repository](https://github.com/organizationname/samplepackagename) using the `Fork` button on GitHub.
-* clone your forked repository on your computer with `git clone https://github.com/organizationname/samplepackagename`.
-* [create a branch](https://docs.github.com/en/get-started/using-github/github-flow#create-a-branch) for your edits with `git branch new-branch`
-* make your changes and run the style checkers with `nox -s style`
-* once the style checks pass, commit your changes with `git commit -m "a short description of your changes"`
-* push your changes with `git push -u origin new-branch`
+* clone your forked repository on your computer: `git clone https://github.com/organizationname/samplepackagename`.
+* [create a branch](https://docs.github.com/en/get-started/using-github/github-flow#create-a-branch) for your edits: `git checkout -b new-branch`
+* make your changes
+* run the style checkers: `nox -s style`
+* add your changed files: `git add .`
+* once the style checks pass, commit your changes: `git commit -m "a short description of your changes"`
+* push your changes: `git push -u origin new-branch`
 * [make a Pull Request](http://makeapullrequest.com/) for your branch from the main GitHub repository [PR page](https://github.com/organizationname/samplepackagename/pulls).
 
 🎉 Thanks for considering contributing to this package! 🎉
@@ -53,7 +55,6 @@ contributions.
   - [Code review](#code-review)
 * [Publish a new release](#publish-a-new-release)
 * [Update the Dependencies](#update-the-dependencies)
-* [Release Checklist](#release-checklist)
 
 ## What Can I Do?
 
@@ -192,7 +193,7 @@ This environment now contains your local, editable version of samplepackagename,
 Instead of editing the main branch, which should remain stable, we create a `branch` and edit that. To create a new branch, called `new-branch` use the following command:
 
 ```bash
-git branch new-branch
+git checkout -b new-branch
 ```
 
 ### Make your changes
@@ -277,9 +278,9 @@ Leave a comment in the PR and we'll help you out.
 
 ### Documentation
 
-The Docs are build with `Sphinx` and `Read the Docs`.
+The Docs are build with [Sphinx](https://www.sphinx-doc.org/en/master/) and hosted on [GitHub Pages](https://pages.github.com/).
 
-> **Note:** The docs are automatically built on PR's by `RTD`, but it's good practice to build them manually before a PR, to check them for errors.
+> **Note:** The docs are automatically built on each commit to a PR, but if you've made significant changes to the docs its good practice to build them manually before a PR, to check them for errors.
 
 #### Check the build manually (optional)
 
@@ -292,16 +293,11 @@ You can build the docs using:
     nox -s docs
 ```
 
-or if you don't want them to automatically update
-```bash
-    nox -s docs --non-interactive
-```
+Click the link to open your docs in a website which will automatically update as you make edits.
 
 #### Automatically build the docs
 
-Add, commit, and push all changes to GitHub in a Pull Request, and `RTD` should automatically build the docs.
-
-In each PR, you will see section of the checks for `RTD`. Click on this to preview the docs for the PR.
+Add, commit, and push all changes to GitHub in a Pull Request, and the docs should automatically be updated. If the PR can from the same repository (not a fork), then a preview of the updated docs should be available after a few minutes.
 
 ### Committing changes
 
@@ -382,6 +378,9 @@ This will almost always be done by the developers, but as a guide for them, here
 
 Follow all the above instructions for formatting. Push your changes to a new or existing Pull Request. Once the automated GitHub Actions run (and pass), merge the PR into the main branch.
 
+Open a new issue, selecting the `Release-Checklist` template, and follow the direction there.
+
+
 ### PyPI (pip)
 PyPI release are made automatically via GitHub actions whenever a pull request is merged.
 
@@ -395,13 +394,3 @@ Once the new version is on conda, update the binder .yml file, as below.
 To add or update a dependencies, add it to `pyproject.toml` either under `dependencies` or `optional-dependencies`. This will be included in the next build uploaded to PyPI.
 
 If you add a dependency necessary for using the package, make sure to add it to the Binder config file and update the `environment.yml` file in the repository. See below.
-
-## Release Checklist
-* re-run any relevant notebooks
-* check docs are building correctly using the GitHub actions link within the PR
-* merge the  PR
-* wait for `PyPI` to publish the new version [here](https://pypi.python.org/pypi/samplepackagename)
-* wait for a PR to be opened in the [feedstock](https://github.com/conda-forge/samplepackagename-feedstock)
-* update any changed dependencies in the feedstock PR and merge
-* wait for `conda` to publish the new version [here](https://anaconda.org/conda-forge/samplepackagename)
-* manually add dependency changes to `environment.yml`

@@ -102,6 +102,8 @@ enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
 warn_unreachable = true
 disallow_untyped_defs = false
 disallow_incomplete_defs = false
+ignore_missing_imports = true
+disallow_untyped_decorators = false
 
 [[tool.mypy.overrides]]
 module = "samplepackagename.*"
@@ -161,3 +163,6 @@ messages_control.disable = [
   "missing-function-docstring",
   "wrong-import-position",
 ]
+
+[tool.codespell]
+ignore-words-list = ["word_to_ignore"]

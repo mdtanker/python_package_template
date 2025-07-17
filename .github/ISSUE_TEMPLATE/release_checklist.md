@@ -12,6 +12,10 @@ assignees: ''
 <!-- Optional -->
 **Target date:** YYYY/MM/DD
 
+## Update dependencies
+
+- [ ] Check all the dependency changes since the last release are  reflected in `environment.yml`
+
 ## Draft a Zenodo archive (to be done by a manager on Zenodo)
 
 - [ ] Go to the Zenodo entry for this project (find the link to the latest Zenodo release on the `README.md` file)
@@ -28,7 +32,7 @@ assignees: ''
 ## Update the changelog
 
 - [ ] Generate a list of commits between the last release tag and now: `git log HEAD...v1.2.3 > changes.md`
-- [ ] Use this to summary the major changes to the code and add short descriptions to `CHANGELOG.md` (not `docs/changelog.md`!).
+- [ ] Use this to summarize the major changes to the code and add short descriptions to `CHANGELOG.md` (not `docs/changelog.md`!).
 - [ ] Add the release date and Zenodo DOI badge to the top
 - [ ] Add contributors to the list
 - [ ] Open a PR to update the changelog

@@ -145,6 +145,7 @@ Steps:
     - for `Branch`, choose "gh-pages"
     - for `Select folder`, choose "root"
     - optionally choose a custom URL and hit save
+    - in each PR there should be a preview for the new site
     - for every push to `main` (from a PR), the site will be updated
 14) Finalize
     - remove all the above instructions and raise any issues in this template's repository if you have any suggestion or found any errors in this template!
@@ -174,8 +175,8 @@ Short description of your package.
 [pypi-link]:                https://pypi.org/project/samplepackagename/
 [pypi-platforms]:           https://img.shields.io/pypi/pyversions/samplepackagename
 [pypi-version]:             https://img.shields.io/pypi/v/samplepackagename
-[website-badge]:            https://github.com/mdtanker/python_package_template/actions/workflows/pages/pages-build-deployment/badge.svg
-[website-link]:             https://mdtanker.github.io/python_package_template/
+[website-badge]:            https://github.com/organizationname/samplepackagename/actions/workflows/pages/pages-build-deployment/badge.svg
+[website-link]:             https://organizationname.github.io/samplepackagename/
 
 <!-- prettier-ignore-end -->
 

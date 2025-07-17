@@ -67,6 +67,9 @@ repos:
       - id: codespell
         additional_dependencies:
           - tomli; python_version<'3.11'
+        entry:
+          codespell --ignore-regex='[A-Za-z0-9+/]{100,}'
+          --skip="*.js,*.html,*.css,*.svg"
 
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: "v0.10.0.1"
