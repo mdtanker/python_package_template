@@ -1,12 +1,5 @@
 # Install
 
-## Online usage (Binder)
-
-See below for the full installation instructions.
-If instead you'd like to use this package online, without needing to install anything, check out our [Binder link](https://mybinder.org/v2/gh/organizationname/samplepackagename/main), which gives full access the the package in an online environment.
-
-This Binder environment can also be accessed by clicking the Binder icon in any of the `gallery` or `tutorial` examples.
-
 ## Install Python
 
 Before installing _samplepackagename_, ensure you have Python 3.9 or greater downloaded.

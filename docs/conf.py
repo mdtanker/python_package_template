@@ -101,19 +101,3 @@ html_theme_options: dict[str, Any] = {
     "source_branch": "main",
     "source_directory": "docs/",
 }
-
-# html_theme = "sphinx_book_theme"
-# html_theme_options = {
-#     "repository_url": "https://github.com/organizationname/samplepackagename",
-#     "repository_branch": "main",
-#     "path_to_docs": "docs",
-#     "launch_buttons": {
-#         "binderhub_url": "https://mybinder.org",
-#         "notebook_interface": "jupyterlab",
-#     },
-#     "use_edit_page_button": True,
-#     "use_issues_button": True,
-#     "use_repository_button": True,
-#     "use_download_button": True,
-#     "home_page_in_toc": False,
-# }
