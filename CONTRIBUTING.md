@@ -378,6 +378,9 @@ This will almost always be done by the developers, but as a guide for them, here
 
 Follow all the above instructions for formatting. Push your changes to a new or existing Pull Request. Once the automated GitHub Actions run (and pass), merge the PR into the main branch.
 
+Open a new issue, selecting the `Release-Checklist` template, and follow the direction there.
+
+
 ### PyPI (pip)
 PyPI release are made automatically via GitHub actions whenever a pull request is merged.
 
