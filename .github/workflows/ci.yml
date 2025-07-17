@@ -66,7 +66,7 @@ jobs:
       - name: Install package
         run: uv sync
 
-      - name: Test package
+      - name: Run the tests
         run: >-
           uv run pytest -ra --cov --cov-report=xml --cov-report=term
           --durations=20

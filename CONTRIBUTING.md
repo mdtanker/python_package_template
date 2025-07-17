@@ -94,7 +94,7 @@ download and install anything:
 * We'll review your changes and then merge them in if everything is OK.
 * Done 🎉🍺
 
-Alternatively, you can make the changes offline to the files in the `doc` folder or the
+Alternatively, you can make the changes offline to the files in the `docs` folder or the
 example scripts. See [Contributing Code](#contributing-code) for instructions.
 
 ## Contributing Code
@@ -159,7 +159,7 @@ Now we need to configure Git to sync this fork to the main repository, not your 
 `cd` into the directory you just cloned and run:
 
 ```bash
-git remote add upstream https://github.com/organizationname/samplepackagenamee.git
+git remote add upstream https://github.com/organizationname/samplepackagename.git
 ```
 
 ### Setting up `nox`
@@ -387,10 +387,8 @@ PyPI release are made automatically via GitHub actions whenever a pull request i
 ### Conda-Forge
 Once the new version is on PyPI, within a few hours a bot will automatically open a new PR in the [samplepackagename conda-forge feedstock](https://github.com/conda-forge/samplepackagename-feedstock). Go through the checklist on the PR. Most of the time the only actions needs are updated any changes made to the dependencies since the last release. Merge the PR and the new version will be available on conda-forge shortly.
 
-Once the new version is on conda, update the binder .yml file, as below.
-
 ## Update the dependencies
 
 To add or update a dependencies, add it to `pyproject.toml` either under `dependencies` or `optional-dependencies`. This will be included in the next build uploaded to PyPI.
 
-If you add a dependency necessary for using the package, make sure to add it to the Binder config file and update the `environment.yml` file in the repository. See below.
+If you add a dependency necessary for using the package, make sure to update the `environment.yml` file in the repository. See below.
