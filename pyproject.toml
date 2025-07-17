@@ -40,6 +40,7 @@ test = [
 ]
 dev = [
   { include-group = "test" },
+  "jupyterlab",
 ]
 docs = [
   "sphinx>=7.0",
