@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### ✏️ Changed
+* replace pre-commit GitHub action with pre-commit.ci
+* Switched website hosting from ReadTheDocs to GitHug Pages
+* Dropped support for Python 3.9, following the recommendation from [SPEC 0000](https://scientific-python.org/specs/spec-0000/)
 <!--
 Below is an example for a release
 

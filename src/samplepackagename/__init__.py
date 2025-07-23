@@ -1,5 +1,5 @@
 # ruff: noqa: F401, E402
-from __future__ import annotations
+
 
 import logging
 

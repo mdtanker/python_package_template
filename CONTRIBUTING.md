@@ -208,7 +208,8 @@ We use [pre-commit](https://pre-commit.com/) to check code style. This can be us
 nox -s lint
 ```
 
-To have `pre-commit` run automatically on commits, install it with `pre-commit install`
+To have `pre-commit` run automatically on commits, install it with `pre-commit install`.
+To have `pre-commit` run online, after any commits to the repository, you can either 1) uncomment the `pre-commit` section of the file `.github/release.yml`, to add a `pre-commit` GitHub action, or , preferably, 2) enable the `pre-commit.ci` service by going to [https://pre-commit.ci/](https://pre-commit.ci/), signing in with your GitHub account, and enabling the service for your repository. This requires it to be public.
 
 Go through the output of this and try to change the code based on the errors. Search the error codes on the [Ruff documentation](https://docs.astral.sh/ruff/), which should give suggestions. Re-run the check to see if you've fixed it. Somethings can't be resolved (unsplittable urls longer than the line length). For these, add `# noqa: []` at the end of the line and the check will ignore it. Inside the square brackets add the specific error code you want to ignore.
 

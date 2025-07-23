@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from samplepackagename import logger  # pylint: disable=unused-import
 
 # Any functions or classes defined here which you want to be available when to users
