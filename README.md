@@ -140,8 +140,10 @@ Steps:
     - commit and push your changes to your fork, and in the main [repository](https://github.com/conda-forge/staged-recipes) open a PR.
 13) Set up GitHub Pages to host the documentation website
     - this will only work for a public repository
-    - On GitHub, go to your repositories settings
-    - for `Source`, choose "Deplot from a branch"
+    - On the GitHub repository, click the `main` button in the upper left
+    - type "gh-pages" and create a new branch
+    - go to your repositories settings -> `Pages`
+    - for `Source`, choose "Deploy from a branch"
     - for `Branch`, choose "gh-pages"
     - for `Select folder`, choose "root"
     - optionally choose a custom URL and hit save
