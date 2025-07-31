@@ -7,5 +7,10 @@
       "affiliation": "Institute, Country",
       "name": "Lastname, Firstname"
     }
-  ]
+  ],
+  "keywords": ["python"],
+  "access_right": "open",
+  "version": "v0.0.1",
+  "upload_type": "software",
+  "language": "eng"
 }
