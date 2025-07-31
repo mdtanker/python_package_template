@@ -72,6 +72,8 @@ build.hooks.vcs.version-file = "src/samplepackagename/_version.py"
 dependencies = []
 scripts.test = "pytest {args}"
 
+[tool.hatch.build.targets.sdist]
+only-include = ["src"]
 
 [tool.pytest.ini_options]
 minversion = "6.0"
