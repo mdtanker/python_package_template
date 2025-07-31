@@ -36,8 +36,8 @@ Steps:
         - your name can be "Maintainers of <samplepackagename>" if there are multiple people.
     - replace all instances of `organizationname` with your GitHub organization (or personal) account name, whichever is going to host the repository.
     - update `pyproject.yml` with a description (1 sentence) and keywords ()
-    - add a description of your project here in the README, as well as in `docs/index.md`.
-    - add your info to `AUTHORS.md`
+    - add a description of your project here in the README, in `docs/index.md`, and in `.zenodo.json`.
+    - add your info to `AUTHORS.md` and `.zenodo.json`
     - at this point, it might be good to make your initial commit to your repository with the following git commands:
         ```bash
         git checkout -b new-branch
@@ -151,6 +151,9 @@ Steps:
     - for every push to `main` (from a PR), the site will be updated
 14) Finalize
     - remove all the above instructions and raise any issues in this template's repository if you have any suggestion or found any errors in this template!
+    - replace all instances of "zenodo_DOI" in this repository with your new Zenodo DOI.
+        - if your Zenodo link is https://doi.org/10.5281/zenodo.15863068,, your DOI is just 15863068
+        - make sure to use the DOI from the `Cite all versions?` portion of your Zenodo page.
     - if you want, please submit a PR to this repository to add your package to this list at the top of this README to showcase it!
 
 # samplepackagename
@@ -162,6 +165,7 @@ Short description of your package.
 [![PyPI version][pypi-version]][pypi-link]
 [![Conda-Forge][conda-badge]][conda-link]
 [![PyPI platforms][pypi-platforms]][pypi-link]
+[![Zenodo][zenodo-badge]][zenodo-link]
 
 [![GitHub Discussion][github-discussions-badge]][github-discussions-link]
 
@@ -179,7 +183,8 @@ Short description of your package.
 [pypi-version]:             https://img.shields.io/pypi/v/samplepackagename
 [website-badge]:            https://github.com/organizationname/samplepackagename/actions/workflows/pages/pages-build-deployment/badge.svg
 [website-link]:             https://organizationname.github.io/samplepackagename/
-
+[zenodo-badge]:            https://zenodo.org/badge/DOI/10.5281/zenodo.zenodo_DOI.svg
+[zenodo-link]:             https://doi.org/10.5281/zenodo.zenodo_DOI
 <!-- prettier-ignore-end -->
 
 <!-- SPHINX-END-badges -->
