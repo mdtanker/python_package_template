@@ -36,8 +36,8 @@ Steps:
         - your name can be "Maintainers of <samplepackagename>" if there are multiple people.
     - replace all instances of `organizationname` with your GitHub organization (or personal) account name, whichever is going to host the repository.
     - update `pyproject.yml` with a description (1 sentence) and keywords ()
-    - add a description of your project here in the README, as well as in `docs/index.md`.
-    - add your info to `AUTHORS.md`
+    - add a description of your project here in the README, in `docs/index.md`, and in `.zenodo.json`.
+    - add your info to `AUTHORS.md` and `.zenodo.json`
     - at this point, it might be good to make your initial commit to your repository with the following git commands:
         ```bash
         git checkout -b new-branch
