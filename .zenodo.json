@@ -1,0 +1,11 @@
+{
+  "title": "samplepackagename: short description",
+  "description": "<p><strong>samplepackagename</strong> is a Python package ...</p><p><strong>Documentation</strong>: <a href=\"https://organizationname.github.io/samplepackagename/\">https://organizationname.github.io/samplepackagename/</a></p><p><strong>Source code</strong>: <a href=\"https://github.com/organizationname/samplepackagename\">https://github.com/organizationname/samplepackagename</a></p>",
+  "creators": [
+    {
+      "orcid": "your ORCID",
+      "affiliation": "Institute, Country",
+      "name": "Lastname, Firstname"
+    }
+  ]
+}
