@@ -1,6 +1,6 @@
 {
   "title": "samplepackagename: short description",
-  "description": "description",
+  "description": "<p><strong>samplepackagename</strong> is a Python package ...</p><p><strong>Documentation</strong>: <a href=\"https://organizationname.github.io/samplepackagename/\">https://organizationname.github.io/samplepackagename/</a></p><p><strong>Source code</strong>: <a href=\"https://github.com/organizationname/samplepackagename\">https://github.com/organizationname/samplepackagename</a></p>",
   "creators": [
     {
       "name": "The samplepackagename Community"
@@ -10,8 +10,5 @@
       "affiliation": "Institute, Country",
       "orcid": "0000-0003-4266-8554"
     }
-  ],
-  "keywords": ["python"],
-  "license": "MIT",
-  "upload_type": "software"
+  ]
 }
