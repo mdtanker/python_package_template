@@ -7,24 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-### 🚀 Added
-- preview the docs in each PR with new GitHub Action
-- include a `.zenodo.json` file to set metadata for each Zenodo release
-
-### ✏️ Changed
-- replace pre-commit GitHub action with pre-commit.ci
-- Switched website hosting from ReadTheDocs to GitHug Pages
-- codespell now tries to ignore notebook outputs
-- improved the contribution guide
-- improved instructions for using this template
-- updated PyLint and MyPy ignored rules
-- removed forced-configuration of logging
-- use automated release of Zenodo from GitHub integration instead of manually drafting release
-- only build and distribute the `src/` directory when packaging
-
-### ❌ Removed
-- Dropped support for Python 3.9, following the recommendation from [SPEC 0000](https://scientific-python.org/specs/spec-0000/)
-
 <!--
 Below is an example for a release
 
@@ -53,6 +35,29 @@ Contributors:
 - removed a password from the code.
 
 -->
+
+## v0.0.2
+Released on 2025-07-31
+Contributors:
+- Matt Tankersley
+
+### 🚀 Added
+- preview the docs in each PR with new GitHub Action
+- include a `.zenodo.json` file to set metadata for each Zenodo release
+
+### ✏️ Changed
+- replace pre-commit GitHub action with pre-commit.ci
+- Switched website hosting from ReadTheDocs to GitHug Pages
+- codespell now tries to ignore notebook outputs
+- improved the contribution guide
+- improved instructions for using this template
+- updated PyLint and MyPy ignored rules
+- removed forced-configuration of logging
+- use automated release of Zenodo from GitHub integration instead of manually drafting release
+- only build and distribute the `src/` directory when packaging
+
+### ❌ Removed
+- Dropped support for Python 3.9, following the recommendation from [SPEC 0000](https://scientific-python.org/specs/spec-0000/)
 
 
 ## v0.0.1
