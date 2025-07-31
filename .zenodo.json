@@ -1,16 +1,210 @@
 {
-  "title": "samplepackagename: short description",
-  "description": "<p><strong>samplepackagename</strong> is a Python package ...</p><p><strong>Documentation</strong>: <a href=\"https://organizationname.github.io/samplepackagename/\">https://organizationname.github.io/samplepackagename/</a></p><p><strong>Source code</strong>: <a href=\"https://github.com/organizationname/samplepackagename\">https://github.com/organizationname/samplepackagename</a></p>",
-  "creators": [
-    {
-      "orcid": "0000-0003-4266-8554",
-      "affiliation": "Institute, Country",
-      "name": "Lastname, Firstname"
+  "access": {
+    "embargo": {
+      "active": false,
+      "reason": null
+    },
+    "files": "public",
+    "record": "public",
+    "status": "open"
+  },
+  "created": "2025-07-11T11:46:44.248728+00:00",
+  "custom_fields": {
+    "code:codeRepository": "https://github.com/mdtanker/python_package_template"
+  },
+  "deletion_status": {
+    "is_deleted": false,
+    "status": "P"
+  },
+  "files": {
+    "count": 1,
+    "enabled": true,
+    "entries": {
+      "mdtanker/python_package_template-v0.0.1.zip": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:4f8fa936c118bede67016c123845ffa3",
+        "ext": "zip",
+        "id": "ac8db426-765e-4d27-a072-1ce2559388cc",
+        "key": "mdtanker/python_package_template-v0.0.1.zip",
+        "links": {
+          "content": "https://zenodo.org/api/records/15863069/files/mdtanker/python_package_template-v0.0.1.zip/content",
+          "self": "https://zenodo.org/api/records/15863069/files/mdtanker/python_package_template-v0.0.1.zip"
+        },
+        "metadata": null,
+        "mimetype": "application/zip",
+        "size": 39459,
+        "storage_class": "L"
+      }
+    },
+    "order": [],
+    "total_bytes": 39459
+  },
+  "id": "15863069",
+  "is_draft": false,
+  "is_published": true,
+  "links": {
+    "access": "https://zenodo.org/api/records/15863069/access",
+    "access_grants": "https://zenodo.org/api/records/15863069/access/grants",
+    "access_links": "https://zenodo.org/api/records/15863069/access/links",
+    "access_request": "https://zenodo.org/api/records/15863069/access/request",
+    "access_users": "https://zenodo.org/api/records/15863069/access/users",
+    "archive": "https://zenodo.org/api/records/15863069/files-archive",
+    "archive_media": "https://zenodo.org/api/records/15863069/media-files-archive",
+    "communities": "https://zenodo.org/api/records/15863069/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/15863069/communities-suggestions",
+    "doi": "https://doi.org/10.5281/zenodo.15863069",
+    "draft": "https://zenodo.org/api/records/15863069/draft",
+    "files": "https://zenodo.org/api/records/15863069/files",
+    "latest": "https://zenodo.org/api/records/15863069/versions/latest",
+    "latest_html": "https://zenodo.org/records/15863069/latest",
+    "media_files": "https://zenodo.org/api/records/15863069/media-files",
+    "parent": "https://zenodo.org/api/records/15863068",
+    "parent_doi": "https://doi.org/10.5281/zenodo.15863068",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.15863068",
+    "parent_html": "https://zenodo.org/records/15863068",
+    "preview_html": "https://zenodo.org/records/15863069?preview=1",
+    "requests": "https://zenodo.org/api/records/15863069/requests",
+    "reserve_doi": "https://zenodo.org/api/records/15863069/draft/pids/doi",
+    "self": "https://zenodo.org/api/records/15863069",
+    "self_doi": "https://doi.org/10.5281/zenodo.15863069",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.15863069",
+    "self_html": "https://zenodo.org/records/15863069",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:15863069/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:15863069/sequence/default",
+    "versions": "https://zenodo.org/api/records/15863069/versions"
+  },
+  "media_files": {
+    "count": 0,
+    "enabled": false,
+    "entries": {},
+    "order": [],
+    "total_bytes": 0
+  },
+  "metadata": {
+    "creators": [
+      {
+        "affiliations": [
+          {
+            "name": "Satellite and Aerogeophysics, Kiel University"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Matt Tankersley",
+          "name": "Matt Tankersley",
+          "type": "personal"
+        }
+      }
+    ],
+    "description": "An opinionated template to easily turn your Python code into a package on pip, conda, and include many nice features like a documentation website, and style checks.",
+    "publication_date": "2025-07-11",
+    "publisher": "Zenodo",
+    "related_identifiers": [
+      {
+        "identifier": "https://github.com/mdtanker/python_package_template/tree/v0.0.1",
+        "relation_type": {
+          "id": "issupplementto",
+          "title": {
+            "de": "Erg\u00e4nzt",
+            "en": "Is supplement to"
+          }
+        },
+        "resource_type": {
+          "id": "software",
+          "title": {
+            "de": "Software",
+            "en": "Software"
+          }
+        },
+        "scheme": "url"
+      }
+    ],
+    "resource_type": {
+      "id": "software",
+      "title": {
+        "de": "Software",
+        "en": "Software"
+      }
+    },
+    "rights": [
+      {
+        "description": {
+          "en": "A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code."
+        },
+        "id": "mit",
+        "props": {
+          "scheme": "spdx",
+          "url": "https://opensource.org/licenses/MIT"
+        },
+        "title": {
+          "en": "MIT License"
+        }
+      }
+    ],
+    "title": "mdtanker/python_package_template: Initial release",
+    "version": "v0.0.1"
+  },
+  "parent": {
+    "access": {
+      "grants": [],
+      "links": [],
+      "owned_by": {
+        "user": "319965"
+      },
+      "settings": {
+        "accept_conditions_text": null,
+        "allow_guest_requests": false,
+        "allow_user_requests": false,
+        "secret_link_expiration": 0
+      }
+    },
+    "communities": {},
+    "id": "15863068",
+    "pids": {
+      "doi": {
+        "client": "datacite",
+        "identifier": "10.5281/zenodo.15863068",
+        "provider": "datacite"
+      }
     }
-  ],
-  "keywords": ["python"],
-  "access_right": "open",
-  "version": "v0.0.1",
-  "upload_type": "software",
-  "language": "eng"
+  },
+  "pids": {
+    "doi": {
+      "client": "datacite",
+      "identifier": "10.5281/zenodo.15863069",
+      "provider": "datacite"
+    },
+    "oai": {
+      "identifier": "oai:zenodo.org:15863069",
+      "provider": "oai"
+    }
+  },
+  "revision_id": 4,
+  "stats": {
+    "all_versions": {
+      "data_volume": 0.0,
+      "downloads": 0,
+      "unique_downloads": 0,
+      "unique_views": 4,
+      "views": 7
+    },
+    "this_version": {
+      "data_volume": 0.0,
+      "downloads": 0,
+      "unique_downloads": 0,
+      "unique_views": 4,
+      "views": 7
+    }
+  },
+  "status": "published",
+  "swh": {
+    "swhid": "swh:1:dir:50c6fa5a3b868b9834d82cbccc1bd0dffb69641b;origin=https://doi.org/10.5281/zenodo.15863068;visit=swh:1:snp:32a60bf07d21b38c225e57624aef6bff27111c0a;anchor=swh:1:rel:0ba228c47b6d53c0df977a377babf6977c6c65fd;path=mdtanker-python_package_template-a5d09f7"
+  },
+  "updated": "2025-07-11T11:46:44.371792+00:00",
+  "versions": {
+    "index": 1,
+    "is_latest": true,
+    "is_latest_draft": true
+  }
 }
