@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### ✏️ Changed
+- drop python 3.10 support and add 3.13 following SPEC0
 <!--
 Below is an example for a release
 
