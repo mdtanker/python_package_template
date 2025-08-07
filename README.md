@@ -169,6 +169,8 @@ Short description of your package.
 
 [![GitHub Discussion][github-discussions-badge]][github-discussions-link]
 
+[![SPEC 0 — Minimum Supported Dependencies](https://img.shields.io/badge/SPEC-0-green?labelColor=%23004811&color=%235CA038)](https://scientific-python.org/specs/spec-0000/)
+
 <!-- SPHINX-START-badges -->
 
 <!-- prettier-ignore-start -->

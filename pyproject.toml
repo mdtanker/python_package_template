@@ -12,7 +12,7 @@ description = "Add a 1 sentence description here."
 keywords = ["python", "", "", ""]
 readme = "README.md"
 license = "MIT"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 classifiers = [
   "Development Status :: 1 - Planning",
   "Intended Audience :: Science/Research",
@@ -21,7 +21,6 @@ classifiers = [
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
@@ -29,7 +28,19 @@ classifiers = [
   "Typing :: Typed",
 ]
 dynamic = ["version"]
+# list your package's dependencies below
+# follow SPEC0 for specifying minimum dependency versions for main packages: https://scientific-python.org/specs/spec-0000/
+# uncomment below packages if you need them
 dependencies = [
+  # "ipython>=8.13.0",
+  # "matplotlib>=3.7.0",
+  # "networkx>=3.1",
+  # "pandas>=2.0.0",
+  # "scikit-image>=0.21.0",
+  # "scikit-learn>=1.3.0",
+  # "scipy>=1.11.0",
+  # "xarray>=2023.4.0",
+  # "zarr>=2.15.0",
 ]
 
 [dependency-groups]
@@ -97,7 +108,7 @@ report.exclude_also = [
 
 [tool.mypy]
 files = ["src", "tests"]
-python_version = "3.10"
+python_version = "3.11"
 warn_unused_configs = true
 strict = true
 enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
@@ -154,8 +165,8 @@ ignore = [
 "*.ipynb" = ["T201"]
 
 [tool.pylint]
-py-version = "3.10"
-ignore-paths = [".*/_version.py"]
+py-version = "3.11"
+ignore-paths = [".*\\_version.py"]
 reports.output-format = "colorized"
 similarities.ignore-imports = "yes"
 similarities.min-similarity-lines = 5
