@@ -43,7 +43,7 @@ contributions.
   - [General guidelines](#general-guidelines)
   - [Fork the repository](#fork-the-repository)
   - [Clone the repository](#clone-the-repository)
-  - [Setting up Nox](#setting-up-nox)
+  - [Setting up nox](#setting-up-nox)
   - [Setting up your environment](#setting-up-your-environment)
   - [Make a branch](#make-a-branch)
   - [Make your changes](#make-your-changes)
@@ -173,7 +173,7 @@ You can install nox with `pip install nox`.
 
 ### Setting up your environment
 
-Run the following `make` command to create a new environment and install the package dependencies. If you don't have / want to install make, just copy the commands from the Makefile file and run them in the terminal.
+Run the following `make` commands to create a new environment and install the package dependencies. If you don't have / want to install make, just copy the commands from the Makefile file and run them in the terminal.
 
 ```
 make create
@@ -386,7 +386,6 @@ This will almost always be done by the developers, but as a guide for them, here
 Follow all the above instructions for formatting. Push your changes to a new or existing Pull Request. Once the automated GitHub Actions run (and pass), merge the PR into the main branch.
 
 Open a new issue, selecting the `Release-Checklist` template, and follow the direction there.
-
 
 ### PyPI (pip)
 PyPI release are made automatically via GitHub actions whenever a pull request is merged.
