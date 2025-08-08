@@ -14,7 +14,7 @@ The below steps will create a complete Python package with testing, a documentat
 
 Steps:
 1) Initiate your repository:
-    - On this [template's page](https://github.com/mdtanker/python_package_template), click the `Use this template` button to `Create a new repository`.
+    - on this [template's page](https://github.com/mdtanker/python_package_template), click the `Use this template` button to `Create a new repository`.
     - choose a project name
         - for simplicity, this name will be used for all of the follow: the folder name that holds this repository as well as the code folder under `src/`, the name of the python package on both PyPI and Conda-Forge, and the repository name on GitHub. Because of these constraints, the best choice is a lowercase word with no spaces or punctuation. While capitalization and punctuation may help readability, they greatly increase the hassle during various stages of the packaging. Ensure your chosen name is available on both [PyPI](https://pypi.org/) and [Conda-Forge](https://conda-forge.org/packages/).
     - choose if you want the repository in your personal account or in one of your organization's accounts.
@@ -35,7 +35,7 @@ Steps:
     - replace all instances of `yourname` with your name
         - your name can be "Maintainers of <samplepackagename>" if there are multiple people.
     - replace all instances of `organizationname` with your GitHub organization (or personal) account name, whichever is going to host the repository.
-    - update `pyproject.yml` with a description (1 sentence) and keywords ()
+    - update `pyproject.yml` with a description (1 sentence) and keywords.
     - add a description of your project here in the README, in `docs/index.md`, and in `.zenodo.json`.
     - add your info (name, affiliate, ORCID) to `AUTHORS.md` and `.zenodo.json`
     - at this point, it might be good to make your initial commit to your repository with the following git commands:
@@ -87,8 +87,10 @@ Steps:
     - dependencies for your package should typically only be those that are directly used (imported) in your source code (or are explicitly needed but not import), but not the dependencies of your dependencies. If you use a package in your documentation, but not in the source code, include this as an _optional_ dependency. If you have a portion of your code that some users may not utilize, such as visualization functions, the dependencies you require for that, such as matplotlib, can also be include as _optional_ dependencies to reduces the constraints for users who don't require it.
     - core dependencies are specified in `pyproject.toml` under the `[project]` section with the format `dependencies = ["pandas", "scipy>=1.0"]`.
     - optional dependencies are specified in `pyproject.toml` under the `[dependency-groups]` section with the following format, for example for optional documentation dependencies: `docs = ["sphinx>=7.0",]`.
-    - Dependency version's should only be constrained to specific versions if you know there is an issue, and they should almost never be pinned to specific versions, as this will cause many issues for anyone who wants to use your package in their own environments.
-    - this template also includes files and commands to create `conda` environments. These are used both in developing, and in GitHub automations. You need to manually ensure the dependencies listed in `environmental.yml` match those in `pyproject.toml`. Include all optional dependencies in the `environmental.yml`. If a dependency is only available via pip, and not conda, add it at the bottom to be installed via pip.
+    - if you know your package has an issue with a specific version of a dependency, you can set a max or min version with "scipy>=1.0".
+    - dependencies should almost never be pinned to specific versions, as this will cause many issues for anyone who wants to use your package in their own environments.
+    - for standard scientific packages (i.e., `pandas`, `xarray`, and `numpy`), as well as the version of Python, it's recommended to set minimum support versions following the timeline of [SPEC 0 guidelines](https://scientific-python.org/specs/spec-0000/).
+    - this template also includes files and commands to create `conda` environments. These are used both in developing, and in GitHub automations. You need to manually ensure the dependencies listed in `environment.yml` match those in `pyproject.toml`. Include all optional dependencies in the `environment.yml`. If a dependency is only available via pip, and not conda, add it at the bottom to be installed via pip.
 6) Create environment, style check, test, and commit your changes.
     - follow the instructions in `CONTRIBUTING.md` starting at section `Setting up nox` and stopping before `Publish a new release`.
     - these steps should result in a merged PR with your code.
@@ -96,7 +98,7 @@ Steps:
     - if you haven't already, link your organization (or personal) GitHub account to [Zenodo](https://zenodo.org/) using `Linked accounts` under your Zenodo profile.
     - do to the `GitHub` menu on your Zenodo profile.
     - click the Sync button and then turn on the switch for your repository.
-    - any future GitHub releases should now result in a new Zenodo release automatically.
+    - any future GitHub releases should now result in a new Zenodo release and DOI automatically.
 8) Set up publishing on TestPyPI
     - before publishing to the real PyPI, we will publish to Test-PyPI to ensure everything works .
     - make an account on [TestPyPI](https://test.pypi.org/).
@@ -122,9 +124,9 @@ Steps:
             nox -s test
             ```
 10) Make a PyPI (pip) release
-    - If the install and test above worked then we can change from TestPyPI to normal PyPI.
+    - if the install and test above worked then we can change from TestPyPI to normal PyPI.
     - in `.github/workflows/cd.yml` comment out or delete the last line: `repository-url: https://test.pypi.org/legacy/`. Now any future reruns of this action will release to PyPI.
-    - In this case, since the GitHub release has already been made, we need to manually trigger the `CD` workflow in GitHub.
+    - in this case, since the GitHub release has already been made, we need to manually trigger the `CD` workflow in GitHub.
         - At [this link](https://github.com/organizationname/samplepackagename/actions/workflows/cd.yml), click the `Run workflow` button.
         - This should build the package and release it to PyPI.
 11) Set up publishing on Conda-Forge
