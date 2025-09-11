@@ -42,11 +42,17 @@ def style(session: nox.Session) -> None:
     session.notify("pylint")
 
 
+# @nox.session(venv_backend="mamba", python="3.11")
 @nox.session
 def test(session: nox.Session) -> None:
     """
     Run the unit and regular tests.
     """
+    # use below line to install any packages which need to be installed via conda
+    # this include things like PyGMT, GeoPandas, PyTorch, etc.
+    # if you use this, then uncomment the line directly above which sets venv_backend to mamba
+    # session.conda_install("polartoolkit")
+
     test_deps = nox.project.dependency_groups(PROJECT, "test")
     session.install("-e.", *test_deps)
     session.run("pytest", "--cov", *session.posargs)
