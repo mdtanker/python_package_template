@@ -1,0 +1,770 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="Changelog" href="changelog.html"><link rel="prev" title="samplepackagename package" href="api/samplepackagename.html">
+
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.09.25 -->
+        <title>How to contribute - samplepackagename 0.1.dev1+g064429daa documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">samplepackagename 0.1.dev1+g064429daa documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <span class="sidebar-brand-text">samplepackagename 0.1.dev1+g064429daa documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">🚀 Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citing.html">Citing samplepackagename</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">🚶 Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">📚 How-To Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how_to/index.html">How-To Guides</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">📂 Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">📖 API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/samplepackagename.html">samplepackagename package</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ℹ️ Other resources</span></p>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/organizationname/samplepackagename">Source code on GitHub</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/organizationname/samplepackagename/blob/main/docs/contributing.md?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/organizationname/samplepackagename/edit/main/docs/contributing.md" rel="edit" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="how-to-contribute">
+<h1>How to contribute<a class="headerlink" href="#how-to-contribute" title="Link to this heading">¶</a></h1>
+<section id="tldr-too-long-didn-t-read">
+<h2>TLDR (Too long; didn’t read)<a class="headerlink" href="#tldr-too-long-didn-t-read" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project">fork</a> the <a class="reference external" href="https://github.com/organizationname/samplepackagename">repository</a> using the <code class="docutils literal notranslate"><span class="pre">Fork</span></code> button on GitHub.</p></li>
+<li><p>clone your forked repository on your computer: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/organizationname/samplepackagename</span></code>.</p></li>
+<li><p><a class="reference external" href="https://docs.github.com/en/get-started/using-github/github-flow#create-a-branch">create a branch</a> for your edits: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">new-branch</span></code></p></li>
+<li><p>make your changes</p></li>
+<li><p>run the style checkers: <code class="docutils literal notranslate"><span class="pre">nox</span> <span class="pre">-s</span> <span class="pre">style</span></code></p></li>
+<li><p>add your changed files: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code></p></li>
+<li><p>once the style checks pass, commit your changes: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;a</span> <span class="pre">short</span> <span class="pre">description</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">changes&quot;</span></code></p></li>
+<li><p>push your changes: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">-u</span> <span class="pre">origin</span> <span class="pre">new-branch</span></code></p></li>
+<li><p><a class="reference external" href="http://makeapullrequest.com/">make a Pull Request</a> for your branch from the main GitHub repository <a class="reference external" href="https://github.com/organizationname/samplepackagename/pulls">PR page</a>.</p></li>
+</ul>
+<p>🎉 Thanks for considering contributing to this package! 🎉</p>
+<p><sub>Adapted from the great contribution guidelines of the <a class="reference external" href="https://www.fatiando.org/">Fatiando a Terra</a> packages<sub>.</p>
+<blockquote>
+<div><p>This document contains some general guidelines to help with contributing to this code. Contributing to a package can be a daunting task, if you want help please reach out on the <a class="reference external" href="https://github.com/organizationname/samplepackagename/discussions">GitHub discussions page</a>!</p>
+</div></blockquote>
+<p>Any kind of help would be much appreciated. Here are a few ways to contribute:</p>
+<ul class="simple">
+<li><p>🐛 Submitting bug reports and feature requests</p></li>
+<li><p>📝 Writing tutorials or examples</p></li>
+<li><p>🔍 Fixing typos and improving to the documentation</p></li>
+<li><p>💡 Writing code for everyone to use</p></li>
+</ul>
+<p>If you get stuck at any point you can create an issue on GitHub (look for the Issues tab in the repository).</p>
+<p>For more information on contributing to open source projects,
+<a class="reference external" href="https://guides.github.com/activities/contributing-to-open-source/">GitHub’s own guide</a>
+is a great starting point if you are new to version control.
+Also, checkout the
+<a class="reference external" href="https://jrleeman.github.io/ScientificSoftwareMaintenance/">Zen of Scientific Software Maintenance</a>
+for some guiding principles on how to create high quality scientific software
+contributions.</p>
+</section>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#what-can-i-do"><span class="std std-ref">What Can I Do?</span></a></p></li>
+<li><p><a class="reference internal" href="#reporting-a-bug"><span class="std std-ref">Reporting a Bug</span></a></p></li>
+<li><p><a class="reference internal" href="#editing-the-documentation"><span class="std std-ref">Editing the Documentation</span></a></p></li>
+<li><p><a class="reference internal" href="#contributing-code"><span class="std std-ref">Contributing Code</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#general-guidelines"><span class="std std-ref">General guidelines</span></a></p></li>
+<li><p><a class="reference internal" href="#fork-the-repository"><span class="std std-ref">Fork the repository</span></a></p></li>
+<li><p><a class="reference internal" href="#clone-the-repository"><span class="std std-ref">Clone the repository</span></a></p></li>
+<li><p><a class="reference internal" href="#setting-up-nox"><span class="std std-ref">Setting up nox</span></a></p></li>
+<li><p><a class="reference internal" href="#setting-up-your-environment"><span class="std std-ref">Setting up your environment</span></a></p></li>
+<li><p><a class="reference internal" href="#make-a-branch"><span class="std std-ref">Make a branch</span></a></p></li>
+<li><p><a class="reference internal" href="#make-your-changes"><span class="std std-ref">Make your changes</span></a></p></li>
+<li><p><a class="reference internal" href="#testing-your-code"><span class="std std-ref">Testing your code</span></a></p></li>
+<li><p><a class="reference internal" href="#documentation"><span class="std std-ref">Documentation</span></a></p></li>
+<li><p><a class="reference internal" href="#committing-changes"><span class="std std-ref">Committing changes</span></a></p></li>
+<li><p><a class="reference internal" href="#push-your-changes"><span class="std std-ref">Push your changes</span></a></p></li>
+<li><p><a class="reference internal" href="#open-a-pr"><span class="std std-ref">Open a PR</span></a></p></li>
+<li><p><a class="reference internal" href="#code-review"><span class="std std-ref">Code review</span></a></p></li>
+<li><p><a class="reference internal" href="#sync-your-fork-and-local"><span class="std std-ref">Sync your fork and local</span></a></p></li>
+<li><p><a class="reference internal" href="#add-yourself-as-an-author"><span class="std std-ref">Add yourself as an author</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#publish-a-new-release"><span class="std std-ref">Publish a new release</span></a></p></li>
+<li><p><a class="reference internal" href="#update-the-dependencies"><span class="std std-ref">Update the Dependencies</span></a></p></li>
+</ul>
+</section>
+<section id="what-can-i-do">
+<h2>What Can I Do?<a class="headerlink" href="#what-can-i-do" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Tackle any issue that you wish! Some issues are labeled as <strong>“good first issues”</strong> to
+indicate that they are beginner friendly, meaning that they don’t require extensive
+knowledge of the project.</p></li>
+<li><p>Make a tutorial or example of how to do something.</p></li>
+<li><p>Provide feedback about how we can improve the project or about your particular use
+case.</p></li>
+<li><p>Contribute code you already have. It doesn’t need to be perfect! We will help you
+clean things up, test it, etc.</p></li>
+</ul>
+</section>
+<section id="reporting-a-bug">
+<h2>Reporting a Bug<a class="headerlink" href="#reporting-a-bug" title="Link to this heading">¶</a></h2>
+<p>Find the <em>Issues</em> tab on the top of the GitHub repository and click <em>New Issue</em>.
+You’ll be prompted to choose between different types of issue, like bug reports and
+feature requests.
+Choose the one that best matches your need.
+The Issue will be populated with one of our templates.
+<strong>Please try to fillout the template with as much detail as you can</strong>.
+Remember: the more information we have, the easier it will be for us to solve your
+problem.</p>
+</section>
+<section id="editing-the-documentation">
+<h2>Editing the Documentation<a class="headerlink" href="#editing-the-documentation" title="Link to this heading">¶</a></h2>
+<p>If you’re browsing the documentation and notice a typo or something that could be
+improved, please consider letting us know by <a class="reference internal" href="#reporting-a-bug"><span class="std std-ref">creating an issue</span></a> or
+submitting a fix (even better 🌟). You can submit fixes to the documentation pages completely online without having to
+download and install anything:</p>
+<ul class="simple">
+<li><p>On each documentation page, there should be a “✏️” bottom at the very top.</p></li>
+<li><p>Click on that link to open the respective source file on GitHub for editing online (you’ll need a GitHub account).</p></li>
+<li><p>Make your desired changes.</p></li>
+<li><p>When you’re done, scroll to the bottom of the page.</p></li>
+<li><p>Fill out the two fields under “Commit changes”: the first is a short title describing your fixes, the second is a more detailed description of the changes. Try to be as detailed as possible and describe <em>why</em> you changed something.</p></li>
+<li><p>Click on the “Commit changes” button to open a pull request (see below).</p></li>
+<li><p>We’ll review your changes and then merge them in if everything is OK.</p></li>
+<li><p>Done 🎉🍺</p></li>
+</ul>
+<p>Alternatively, you can make the changes offline to the files in the <code class="docutils literal notranslate"><span class="pre">docs</span></code> folder or the
+example scripts. See <a class="reference internal" href="#contributing-code"><span class="std std-ref">Contributing Code</span></a> for instructions.</p>
+</section>
+<section id="contributing-code">
+<h2>Contributing Code<a class="headerlink" href="#contributing-code" title="Link to this heading">¶</a></h2>
+<p><strong>Is this your first contribution?</strong>
+Please take a look at these resources to learn about git and pull requests (don’t
+hesitate to ask questions in the <a class="reference external" href="https://github.com/organizationname/samplepackagename/discussions">GitHub discussions page</a>):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://opensource.guide/how-to-contribute/">How to Contribute to Open Source</a>.</p></li>
+<li><p>Aaron Meurer’s <a class="reference external" href="http://www.asmeurer.com/git-workflow/">tutorial on the git workflow</a></p></li>
+<li><p><a class="reference external" href="https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github">How to Contribute to an Open Source Project on GitHub</a></p></li>
+</ul>
+<p>If you’re new to working with git, GitHub, and the Unix Shell, we recommend
+starting with the <a class="reference external" href="https://software-carpentry.org/">Software Carpentry</a> lessons,
+which are available in English and Spanish:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://swcarpentry.github.io/git-novice/">Version Control with Git</a></p></li>
+<li><p><a class="reference external" href="http://swcarpentry.github.io/shell-novice/">The Unix Shell</a></p></li>
+</ul>
+<section id="general-guidelines">
+<h3>General guidelines<a class="headerlink" href="#general-guidelines" title="Link to this heading">¶</a></h3>
+<p>We follow the <a class="reference external" href="http://www.asmeurer.com/git-workflow/">git pull request workflow</a> to
+make changes to our codebase.
+Every change made to the codebase goes through a pull request so that our
+<a class="reference external" href="https://en.wikipedia.org/wiki/Continuous_integration">continuous integration</a> services
+have a chance to check that the code is up to standards and passes all our tests.
+This way, the <em>main</em> branch is always stable.</p>
+<p>General guidelines for pull requests (PRs):</p>
+<ul class="simple">
+<li><p><strong>Open an issue first</strong> describing what you want to do. If there is already an issue
+that matches your PR, leave a comment there instead to let us know what you plan to
+do.</p></li>
+<li><p>Each pull request should consist of a <strong>small</strong> and logical collection of changes.</p></li>
+<li><p>Larger changes should be broken down into smaller components and integrated
+separately.</p></li>
+<li><p>Bug fixes should be submitted in separate PRs.</p></li>
+<li><p>Describe what your PR changes and <em>why</em> this is a good thing. Be as specific as you
+can. The PR description is how we keep track of the changes made to the project over
+time.</p></li>
+<li><p>Write descriptive commit messages. Chris Beams has written a
+<a class="reference external" href="https://chris.beams.io/posts/git-commit/">guide</a> on how to write good commit
+messages.</p></li>
+<li><p>Be willing to accept criticism and work on improving your code; we don’t want to break
+other users’ code, so care must be taken not to introduce bugs.</p></li>
+<li><p>Be aware that the pull request review process is not immediate, and is generally
+proportional to the size of the pull request.</p></li>
+</ul>
+</section>
+<section id="fork-the-repository">
+<h3>Fork the repository<a class="headerlink" href="#fork-the-repository" title="Link to this heading">¶</a></h3>
+<p>On the github page, first fork the repository to get your own version of it. This is with the <code class="docutils literal notranslate"><span class="pre">fork</span></code> button at the top of the GitHub repository page.</p>
+</section>
+<section id="clone-the-repository">
+<h3>Clone the repository<a class="headerlink" href="#clone-the-repository" title="Link to this heading">¶</a></h3>
+<p>Now you need to get the cloned repository files onto your computer. This is referred to as <code class="docutils literal notranslate"><span class="pre">cloning</span></code>. In a terminal, or Git Bash, <code class="docutils literal notranslate"><span class="pre">cd</span></code> to the directory you want your cloned folder to be placed into and enter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/organizationname/samplepackagename
+</pre></div>
+</div>
+<p>Now we need to configure Git to sync this fork to the main repository, not your fork of it.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cd</span></code> into the directory you just cloned and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/organizationname/samplepackagename.git
+</pre></div>
+</div>
+</section>
+<section id="setting-up-nox">
+<h3>Setting up <code class="docutils literal notranslate"><span class="pre">nox</span></code><a class="headerlink" href="#setting-up-nox" title="Link to this heading">¶</a></h3>
+<p>Most of the commands used in the development of <code class="docutils literal notranslate"><span class="pre">samplepackagename</span></code> use the tool <code class="docutils literal notranslate"><span class="pre">nox</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">nox</span></code> commands are defined in the file <a class="reference external" href="https://github.com/organizationname/samplepackagename/blob/main/noxfile.py"><code class="docutils literal notranslate"><span class="pre">noxfile.py</span></code></a>, and are run in the terminal / command prompt with the format <code class="docutils literal notranslate"><span class="pre">nox</span> <span class="pre">-s</span> <span class="pre">&lt;&lt;command</span> <span class="pre">name&gt;&gt;</span></code>.</p>
+<p>You can install nox with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">nox</span></code>.</p>
+</section>
+<section id="setting-up-your-environment">
+<h3>Setting up your environment<a class="headerlink" href="#setting-up-your-environment" title="Link to this heading">¶</a></h3>
+<p>Run the following <code class="docutils literal notranslate"><span class="pre">make</span></code> commands to create a new environment and install the package dependencies. If you don’t have / want to install make, just copy the commands from the Makefile file and run them in the terminal.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">create</span>
+</pre></div>
+</div>
+<p>Activate the environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mamba</span> <span class="n">activate</span> <span class="n">samplepackagename</span>
+</pre></div>
+</div>
+<p>Install your local version:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>This environment now contains your local, editable version of samplepackagename, meaning if you alter code in the package, it will automatically include those changes in your environment (you may need to restart your kernel if using Jupyter). If you need to update the dependencies, see the <a class="reference internal" href="#update-the-dependencies"><span class="std std-ref">update the dependencies</span></a> section below.</p>
+<blockquote>
+<div><p><strong>Note:</strong> You’ll need to activate the environment every time you start a new terminal.</p>
+</div></blockquote>
+</section>
+<section id="make-a-branch">
+<h3>Make a branch<a class="headerlink" href="#make-a-branch" title="Link to this heading">¶</a></h3>
+<p>Instead of editing the main branch, which should remain stable, we create a <code class="docutils literal notranslate"><span class="pre">branch</span></code> and edit that. To create a new branch, called <code class="docutils literal notranslate"><span class="pre">new-branch</span></code> use the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>new-branch
+</pre></div>
+</div>
+</section>
+<section id="make-your-changes">
+<h3>Make your changes<a class="headerlink" href="#make-your-changes" title="Link to this heading">¶</a></h3>
+<p>Now your ready to make your changes! Make sure to read the below sections to see how to correctly format and style your code contributions.</p>
+<section id="code-style-and-linting">
+<h4>Code style and linting<a class="headerlink" href="#code-style-and-linting" title="Link to this heading">¶</a></h4>
+<p>We use <a class="reference external" href="https://pre-commit.com/">pre-commit</a> to check code style. This can be used locally, by installing pre-commit, or can be used as a pre-commit hook, where it is automatically run by git for each commit to the repository. This pre-commit hook won’t add or commit any changes, but will just inform your of what should be changed. Pre-commit is setup within the <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> file. There are lots of hooks (processes) which run for each pre-commit call, including <a class="reference external" href="https://docs.astral.sh/ruff/">Ruff</a> to format and lint the code. This allows you to not think about proper indentation, line length, or aligning your code during development. Before committing, or periodically while you code, run the following to automatically format your code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nox</span> <span class="o">-</span><span class="n">s</span> <span class="n">lint</span>
+</pre></div>
+</div>
+<p>To have <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> run automatically on commits, install it with <code class="docutils literal notranslate"><span class="pre">pre-commit</span> <span class="pre">install</span></code>.
+To have <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> run online, after any commits to the repository, you can either 1) uncomment the <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> section of the file <code class="docutils literal notranslate"><span class="pre">.github/release.yml</span></code>, to add a <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> GitHub action, or , preferably, 2) enable the <code class="docutils literal notranslate"><span class="pre">pre-commit.ci</span></code> service by going to <a class="reference external" href="https://pre-commit.ci/">https://pre-commit.ci/</a>, signing in with your GitHub account, and enabling the service for your repository. This requires it to be public.</p>
+<p>Go through the output of this and try to change the code based on the errors. Search the error codes on the <a class="reference external" href="https://docs.astral.sh/ruff/">Ruff documentation</a>, which should give suggestions. Re-run the check to see if you’ve fixed it. Somethings can’t be resolved (unsplittable urls longer than the line length). For these, add <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">noqa:</span> <span class="pre">[]</span></code> at the end of the line and the check will ignore it. Inside the square brackets add the specific error code you want to ignore.</p>
+<p>We also use <a class="reference external" href="https://pylint.readthedocs.io/en/latest/">Pylint</a>, which performs static-linting on the code. This checks the code and catches many common bugs and errors, without running any of the code. This check is slightly slower the the <code class="docutils literal notranslate"><span class="pre">Ruff</span></code> check. Run it with the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nox</span> <span class="o">-</span><span class="n">s</span> <span class="n">pylint</span>
+</pre></div>
+</div>
+<p>Similar to using <code class="docutils literal notranslate"><span class="pre">Ruff</span></code>, go through the output of this, search the error codes on the <a class="reference external" href="https://pylint.readthedocs.io/en/latest/">Pylint documentation</a> for help, and try and fix all the errors and warnings. If there are false-positives, or your confident you don’t agree with the warning, add <code class="docutils literal notranslate"> <span class="pre">#</span> <span class="pre">pylint:</span> <span class="pre">disable=</span></code> at the end of the lines, with the warning code following the <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
+<p>To run both pre-commit and pylint together use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nox</span> <span class="o">-</span><span class="n">s</span> <span class="n">style</span>
+</pre></div>
+</div>
+</section>
+<section id="docstrings">
+<h4>Docstrings<a class="headerlink" href="#docstrings" title="Link to this heading">¶</a></h4>
+<p><strong>All docstrings</strong> should follow the
+<a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard">numpy style guide</a>.
+All functions/classes/methods should have docstrings with a full description of all
+arguments and return values.</p>
+<p>While the maximum line length for code is automatically set by <em>Ruff</em>, docstrings
+must be formatted manually. To play nicely with Jupyter and IPython, <strong>keep docstrings
+limited to 88 characters</strong> per line. We don’t have a good way of enforcing this
+automatically yet, so please do your best.</p>
+</section>
+<section id="type-hints">
+<h4>Type hints<a class="headerlink" href="#type-hints" title="Link to this heading">¶</a></h4>
+<p>We have also opted to use type hints throughout the codebase. This means each function/class/method should be fulled typed, including the docstrings. We use <a class="reference external" href="https://mypy.readthedocs.io/en/stable/">mypy</a> as a type checker.</p>
+<p>Try and address all the errors and warnings. If there are complex types, just use <code class="docutils literal notranslate"><span class="pre">typing.Any</span></code>, or if necessary, ignore the line causing the issue by adding <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">type:</span> <span class="pre">ignore[]</span></code> with the error code inside the square brackets.</p>
+</section>
+<section id="logging">
+<h4>Logging<a class="headerlink" href="#logging" title="Link to this heading">¶</a></h4>
+<p>When writing code; use logging (instead of print) to inform users of info, errors, and warnings. In each module <code class="docutils literal notranslate"><span class="pre">.py</span></code> file, import the project-wide logger instance with <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">samplepackagename</span> <span class="pre">import</span> <span class="pre">logger</span></code> and then for example: <code class="docutils literal notranslate"><span class="pre">logger.info(&quot;log</span> <span class="pre">this</span> <span class="pre">message&quot;)</span></code></p>
+</section>
+</section>
+<section id="testing-your-code">
+<h3>Testing your code<a class="headerlink" href="#testing-your-code" title="Link to this heading">¶</a></h3>
+<p>Automated testing helps ensure that our code is as free of bugs as it can be.
+It also lets us know immediately if a change we make breaks any other part of the code.</p>
+<p>All of our test code and data are stored in the <code class="docutils literal notranslate"><span class="pre">tests</span></code> folder.
+We use the <a class="reference external" href="https://pytest.org/">pytest</a> framework to run the test suite, and our continuous integration systems with GitHub Actions use CodeCov to display how much of our code is covered by the tests.</p>
+<p>Please write tests for your code so that we can be sure that it won’t break any of the
+existing functionality.
+Tests also help us be confident that we won’t break your code in the future.</p>
+<p>If you’re <strong>new to testing</strong>, see existing test files for examples of things to do.
+<strong>Don’t let the tests keep you from submitting your contribution!</strong>
+If you’re not sure how to do this or are having trouble, submit your pull request
+anyway.
+We will help you create the tests and sort out any kind of problem during code review.</p>
+<p>Run the tests and calculate test coverage using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nox</span> <span class="o">-</span><span class="n">s</span> <span class="n">test</span>
+</pre></div>
+</div>
+<p>To run a specific test by name:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="o">--</span><span class="n">cov</span><span class="o">=.</span> <span class="o">-</span><span class="n">k</span> <span class="s2">&quot;test_name&quot;</span>
+</pre></div>
+</div>
+<p>The coverage report will let you know which lines of code are touched by the tests.
+<strong>Strive to get 100% coverage for the lines you changed.</strong>
+It’s OK if you can’t or don’t know how to test something.
+Leave a comment in the PR and we’ll help you out.</p>
+</section>
+<section id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">¶</a></h3>
+<p>The Docs are build with <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> and hosted on <a class="reference external" href="https://pages.github.com/">GitHub Pages</a>.</p>
+<blockquote>
+<div><p><strong>Note:</strong> The docs are automatically built on each commit to a PR, but if you’ve made significant changes to the docs its good practice to build them manually before a PR, to check them for errors.</p>
+</div></blockquote>
+<section id="check-the-build-manually-optional">
+<h4>Check the build manually (optional)<a class="headerlink" href="#check-the-build-manually-optional" title="Link to this heading">¶</a></h4>
+<p>You can build the docs using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">    </span>nox<span class="w"> </span>-s<span class="w"> </span>build_api_docs
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">    </span>nox<span class="w"> </span>-s<span class="w"> </span>docs
+</pre></div>
+</div>
+<p>Click the link to open your docs in a website which will automatically update as you make edits.</p>
+</section>
+<section id="automatically-build-the-docs">
+<h4>Automatically build the docs<a class="headerlink" href="#automatically-build-the-docs" title="Link to this heading">¶</a></h4>
+<p>Add, commit, and push all changes to GitHub in a Pull Request, and the docs should automatically be updated. If the PR can from the same repository (not a fork), then a preview of the updated docs should be available after a few minutes.</p>
+</section>
+</section>
+<section id="committing-changes">
+<h3>Committing changes<a class="headerlink" href="#committing-changes" title="Link to this heading">¶</a></h3>
+<p>Once your have made your changes to your branch of your forked repository, you’ll need to commit the changes to your remote fork.</p>
+<p>This can be done interactively, if you use a editor like <code class="docutils literal notranslate"><span class="pre">VS</span> <span class="pre">Code</span></code>, or in the terminal.</p>
+<p>Stage your changes for a file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>&lt;file&gt;
+</pre></div>
+</div>
+<p>or for a whole directory</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>&lt;directory&gt;
+</pre></div>
+</div>
+<p>Then commit those staged changes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;a short description of your changes&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="push-your-changes">
+<h3>Push your changes<a class="headerlink" href="#push-your-changes" title="Link to this heading">¶</a></h3>
+<p>With 1 or more committed changes, we can push those changes to your remote fork on GitHub.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>your-branch-name
+</pre></div>
+</div>
+</section>
+<section id="open-a-pr">
+<h3>Open a PR<a class="headerlink" href="#open-a-pr" title="Link to this heading">¶</a></h3>
+<p>Now in the original repository (not your fork), you can open a Pull-Request to incorporate your branch into the main repository. This is done on the main repository’s GitHub page, using the Pull Request tab.</p>
+</section>
+<section id="code-review">
+<h3>Code review<a class="headerlink" href="#code-review" title="Link to this heading">¶</a></h3>
+<p>After you’ve submitted a pull request, you should expect to hear at least a comment
+within a couple of days.
+We may suggest some changes or improvements or alternatives.</p>
+<p>Some things that will increase the chance that your pull request is accepted quickly:</p>
+<ul class="simple">
+<li><p>Write a good and detailed description of what the PR does.</p></li>
+<li><p>Write tests for the code you wrote/modified.</p></li>
+<li><p>Readable code is better than clever code (even with comments).</p></li>
+<li><p>Write documentation for your code (docstrings) and leave comments explaining the
+<em>reason</em> behind non-obvious things.</p></li>
+<li><p>Include an example of new features in the gallery or tutorials.</p></li>
+<li><p>Follow the <a class="reference external" href="https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt">numpy guide</a>
+for documentation.</p></li>
+<li><p>Run the automatic code formatter and style checks.</p></li>
+</ul>
+<p>If you’re PR involves changing the package dependencies, see the below instructions for <a class="reference internal" href="#update-the-dependencies"><span class="std std-ref">updating the dependencies</span></a>.</p>
+<p>Pull requests will automatically have tests run by GitHub Actions.
+This includes running both the unit tests as well as code linters.
+GitHub will show the status of these checks on the pull request.
+Try to get them all passing (green).
+If you have any trouble, leave a comment in the PR or
+<a class="reference external" href="https://github.com/organizationname/samplepackagename/discussions">post on the GH discussions page</a>.</p>
+</section>
+<section id="sync-your-fork-and-local">
+<h3>Sync your fork and local<a class="headerlink" href="#sync-your-fork-and-local" title="Link to this heading">¶</a></h3>
+<p>Once the PR is merged, you will need to sync both your forked repository (origin) and your local clones repository with the following git commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>fetch<span class="w"> </span>upstream
+git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>your-branch-name<span class="w"> </span><span class="o">(</span>OPTIONAL<span class="o">)</span>
+git<span class="w"> </span>merge<span class="w"> </span>upstream/main
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+</pre></div>
+</div>
+<p>Now both your forked (upstream) and local repositories are sync with the upstream repository where the PR was merged.</p>
+</section>
+<section id="add-yourself-as-an-author">
+<h3>Add yourself as an author<a class="headerlink" href="#add-yourself-as-an-author" title="Link to this heading">¶</a></h3>
+<p>Once you have merged your PR, open a new PR with your details added to the files <code class="docutils literal notranslate"><span class="pre">AUTHORS.md</span></code> and <code class="docutils literal notranslate"><span class="pre">.zenodo.json</span></code>. With each new release, Zenodo will add you as an author to package.</p>
+</section>
+</section>
+<section id="publish-a-new-release">
+<h2>Publish a new release<a class="headerlink" href="#publish-a-new-release" title="Link to this heading">¶</a></h2>
+<p>This will almost always be done by the developers, but as a guide for them, here are instructions on how to release a new version of the package.</p>
+<p>Follow all the above instructions for formatting. Push your changes to a new or existing Pull Request. Once the automated GitHub Actions run (and pass), merge the PR into the main branch.</p>
+<p>Open a new issue, selecting the <code class="docutils literal notranslate"><span class="pre">Release-Checklist</span></code> template, and follow the direction there.</p>
+<section id="pypi-pip">
+<h3>PyPI (pip)<a class="headerlink" href="#pypi-pip" title="Link to this heading">¶</a></h3>
+<p>PyPI release are made automatically via GitHub actions whenever a pull request is merged.</p>
+</section>
+<section id="conda-forge">
+<h3>Conda-Forge<a class="headerlink" href="#conda-forge" title="Link to this heading">¶</a></h3>
+<p>Once the new version is on PyPI, within a few hours a bot will automatically open a new PR in the <a class="reference external" href="https://github.com/conda-forge/samplepackagename-feedstock">samplepackagename conda-forge feedstock</a>. Go through the checklist on the PR. Most of the time the only actions needs are updated any changes made to the dependencies since the last release. Merge the PR and the new version will be available on conda-forge shortly.</p>
+</section>
+</section>
+<section id="update-the-dependencies">
+<h2>Update the dependencies<a class="headerlink" href="#update-the-dependencies" title="Link to this heading">¶</a></h2>
+<p>To add or update a dependencies, add it to <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> either under <code class="docutils literal notranslate"><span class="pre">dependencies</span></code> or <code class="docutils literal notranslate"><span class="pre">optional-dependencies</span></code>. This will be included in the next build uploaded to PyPI.</p>
+<p>If you add a dependency necessary for using the package, make sure to update the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file in the repository. See below.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="changelog.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Changelog</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="api/samplepackagename.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">samplepackagename package</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, yourname
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/organizationname/samplepackagename" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">How to contribute</a><ul>
+<li><a class="reference internal" href="#tldr-too-long-didn-t-read">TLDR (Too long; didn’t read)</a></li>
+<li><a class="reference internal" href="#contents">Contents</a></li>
+<li><a class="reference internal" href="#what-can-i-do">What Can I Do?</a></li>
+<li><a class="reference internal" href="#reporting-a-bug">Reporting a Bug</a></li>
+<li><a class="reference internal" href="#editing-the-documentation">Editing the Documentation</a></li>
+<li><a class="reference internal" href="#contributing-code">Contributing Code</a><ul>
+<li><a class="reference internal" href="#general-guidelines">General guidelines</a></li>
+<li><a class="reference internal" href="#fork-the-repository">Fork the repository</a></li>
+<li><a class="reference internal" href="#clone-the-repository">Clone the repository</a></li>
+<li><a class="reference internal" href="#setting-up-nox">Setting up <code class="docutils literal notranslate"><span class="pre">nox</span></code></a></li>
+<li><a class="reference internal" href="#setting-up-your-environment">Setting up your environment</a></li>
+<li><a class="reference internal" href="#make-a-branch">Make a branch</a></li>
+<li><a class="reference internal" href="#make-your-changes">Make your changes</a><ul>
+<li><a class="reference internal" href="#code-style-and-linting">Code style and linting</a></li>
+<li><a class="reference internal" href="#docstrings">Docstrings</a></li>
+<li><a class="reference internal" href="#type-hints">Type hints</a></li>
+<li><a class="reference internal" href="#logging">Logging</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#testing-your-code">Testing your code</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a><ul>
+<li><a class="reference internal" href="#check-the-build-manually-optional">Check the build manually (optional)</a></li>
+<li><a class="reference internal" href="#automatically-build-the-docs">Automatically build the docs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#committing-changes">Committing changes</a></li>
+<li><a class="reference internal" href="#push-your-changes">Push your changes</a></li>
+<li><a class="reference internal" href="#open-a-pr">Open a PR</a></li>
+<li><a class="reference internal" href="#code-review">Code review</a></li>
+<li><a class="reference internal" href="#sync-your-fork-and-local">Sync your fork and local</a></li>
+<li><a class="reference internal" href="#add-yourself-as-an-author">Add yourself as an author</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#publish-a-new-release">Publish a new release</a><ul>
+<li><a class="reference internal" href="#pypi-pip">PyPI (pip)</a></li>
+<li><a class="reference internal" href="#conda-forge">Conda-Forge</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#update-the-dependencies">Update the dependencies</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=533642b6"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    </body>
+</html>
