@@ -1,4 +1,4 @@
-# ruff: noqa: F401, E402
+# ruff: noqa: F401
 
 
 import logging
